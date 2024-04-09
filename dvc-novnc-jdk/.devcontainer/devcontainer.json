@@ -1,0 +1,48 @@
+{
+    "name": "dvc-novnc-jdk",
+    "dockerComposeFile": [
+        "../compose.yaml"
+    ],
+    "service": "dvc-novnc-jdk",
+    "remoteUser": "node",
+    "shutdownAction": "none",
+    "workspaceFolder": "/home/node/workspace",
+    "forwardPorts": [
+        6080,
+        5901
+    ],
+    "customizations": {
+        "vscode": {
+            "settings": {
+                "terminal.integrated.defaultProfile.linux": "bash",
+                "editor.formatOnSave": true,
+                "editor.tabSize": 4,
+                "editor.detectIndentation": false,
+                "editor.insertSpaces": true,
+                "editor.defaultFormatter": "esbenp.prettier-vscode"
+            },
+            "extensions": [
+                "esbenp.prettier-vscode",
+                "oderwat.indent-rainbow",
+                "eamodio.gitlens",
+                "donjayamanne.githistory",
+                "mhutchie.git-graph",
+                "ms-azuretools.vscode-docker",
+                "christian-kohler.npm-intellisense",
+                "dbaeumer.vscode-eslint",
+                "vscjava.vscode-java-debug",
+                "vscjava.vscode-java-pack",
+                "visualstudioexptteam.intellicode-api-usage-examples",
+                "ms-ceintl.vscode-language-pack-ja",
+                "redhat.java",
+                "vscjava.vscode-maven",
+                "vscjava.vscode-java-dependency",
+                "vscjava.vscode-java-test",
+                "vscode-icons-team.vscode-icons",
+                "ms-vscode-remote.remote-containers",
+                "davidanson.vscode-markdownlint",
+                "ms-vscode-remote.vscode-remote-extensionpack"
+            ]
+        }
+    }
+}

@@ -1,0 +1,16 @@
+{
+  "name": "dvc-novnc-jdk",
+  "dockerFile": "./Dockerfile",
+  "features": {
+    "ghcr.io/devcontainers/features/java:1": {
+        // "version": "latest",
+        // "jdkDistro": "ms",
+        // "installGradle": "true",
+        // "gradleVersion": "latest",
+        // "installMaven": "true",
+        // "mavenVersion": "latest",
+        // "installAnt": "true",
+        // "antVersion": "latest"
+    }
+  }
+}

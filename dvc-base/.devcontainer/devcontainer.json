@@ -1,0 +1,18 @@
+{
+  "name": "dvc-base",
+  "dockerComposeFile": [
+    "../compose.yaml"
+  ],
+  "service": "dvc-base",
+  "remoteUser": "node",
+  "shutdownAction": "none",
+  "workspaceFolder": "/home/node/workspace",
+  "customizations": {
+    "vscode": {
+      "settings": {
+      },
+      "extensions": [
+      ]
+    }
+  }
+}

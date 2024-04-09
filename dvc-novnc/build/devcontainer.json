@@ -1,0 +1,9 @@
+{
+    "name": "dvc-novnc",
+    "dockerFile": "./Dockerfile",
+    "features": {
+        "ghcr.io/devcontainers/features/desktop-lite:1.0.8": {
+            "version": "latest"
+        }
+    }
+}

@@ -1,0 +1,22 @@
+{
+  "name": "dvc-novnc",
+  "dockerComposeFile": [
+    "../compose.yaml"
+  ],
+  "service": "dvc-novnc",
+  "remoteUser": "node",
+  "shutdownAction": "none",
+  "workspaceFolder": "/home/node/workspace",
+  "forwardPorts": [
+    6080,
+    5901
+  ],
+  "customizations": {
+    "vscode": {
+      "settings": {
+      },
+      "extensions": [
+      ]
+    }
+  }
+}
