@@ -1,5 +1,5 @@
 #! /bin/sh
-IMAGE_NAME=dvc:novnc-jdk-202404
+IMAGE_NAME=dvc:novnc-jdk-202405
 BUILD_DEVCON_DIR=$(cd $(dirname $0);pwd)
 PATH=${PATH}:${NPM_CONFIG_PREFIX}/bin
 
