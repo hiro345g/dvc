@@ -12,10 +12,10 @@
 
 　dvc を使うと日本語に対応した簡易 Desktop 環境が動く Docker コンテナーが使えるようになります。簡易 Desktop 環境には VNC という仕組みを使って接続して利用できます。利用方法としては Web ブラウザを使う方法、VNC クライアントを使う方法があります。
 
-|クライアント| URL |
-|----|----|
-| Web ブラウザ | <http://localhost:6080> |
-| VNC クライアント | <vnc://localhost:5901> |
+| クライアント     | URL                     |
+|------------------|-------------------------|
+| Web ブラウザ     | <http://localhost:6080> |
+| VNC クライアント | <vnc://localhost:5901>  |
 
 　VNC 接続をすると、簡易 Desktop 環境で Firefox や Chromium が用意できるようになり、Web アプリの開発などでも利用できるようになります。
 
@@ -37,7 +37,11 @@
 
 　Docker イメージは Docker Hub の <https://hub.docker.com/r/hiro345g/dvc> で公開されているものを使用します。ちなみに、この GitHub のリポジトリーには、この Docker イメージをビルドするためのファイルも含まれているので、Docker Hub のものを使わずにローカルマシンでビルドしたものを使うこともできます。
 
-　dvc では、<https://github.com/devcontainers/images/tree/main/src/typescript-node> で公開されている mcr.microsoft.com/devcontainers/typescript-node:18-bookworm の Docker イメージをベースとしています。Feature に <https://github.com/devcontainers/features/> で公開されている common-utils、desktop-lite、docker-outside-of-docker、git、git-lfs を指定して Docker イメージを作成しています。
+　なお、このリポジトリで公開している、ローカルマシンでビルドする場合に使うコード（Dockerfile や devcontainer.json）のライセンスは MIT ライセンスとなっています。しかし、ローカルマシンでビルドしたイメージや <https://hub.docker.com/r/hiro345g/dvc> で公開されているイメージを使う場合は、MIT ライセンスではなく、イメージに含まれるソフトウェアのライセンスに同意した上で使う必要があります。そのため、イメージに含まれるソフトウェアについて、ここで説明します。
+
+　dvc では、<https://github.com/devcontainers/images/tree/main/src/typescript-node> で公開されている mcr.microsoft.com/devcontainers/typescript-node:18-bookworm の Docker イメージをベースとしています。これは [Debian](https://www.debian.org/) をベースとしているので、基本的なライセンスは <https://www.debian.org/social_contract#guidelines> に従います。
+
+　ベースに追加で Feature を適用しています。具体的には <https://github.com/devcontainers/features/> で公開されている common-utils、desktop-lite、docker-outside-of-docker、git、git-lfs を指定して Docker イメージを作成しています。
 
 - [common-utils](https://github.com/devcontainers/features/tree/main/src/common-utils)
 - [desktop-lite](https://github.com/devcontainers/features/tree/main/src/desktop-lite)
@@ -45,16 +49,24 @@
 - [git](https://github.com/devcontainers/features/tree/main/src/git)
 - [git-lfs](https://github.com/devcontainers/features/tree/main/src/git-lfs)
 
+　これらのフィーチャーは、基本的にはベースとするイメージである Debian のパッケージを使ってソフトウェアをインストールしているので、そのパッケージのライセンスに従います。Debian のパッケージに含まれるソフトウェアであっても Debian のライセンスとは限らない点に注意してください。例えば、`docker-outside-of-docker` に含まれる Docker 関連のソフトウェアは [moby/LICENSE](https://github.com/moby/moby/blob/master/LICENSE) のライセンスに従います。
+
 　dvc では、desktop-lite に次の Web ブラウザを追加して使えるようにしてあります。locale 周りの設定もしてあり、追加で fonts-vlgothic フォントもインストールしてあります。
 
-- [Firefox](https://www.mozilla.org/firefox/) ESR
-- [Chromium](https://www.chromium.org/Home/)
-- [VLゴシックフォント](https://ja.osdn.net/projects/vlgothic/)
+| ソフトウェア                                                 | ライセンスに関する情報                                                                |
+|--------------------------------------------------------------|---------------------------------------------------------------------------------------|
+| [Firefox](https://www.mozilla.org/firefox/) ESR              | [Mozilla Public Licence](https://www.mozilla.org/en-US/MPL/)                          |
+| [Chromium](https://www.chromium.org/Home/)                   | [chromium/src/LICENSE](https://chromium.googlesource.com/chromium/src/+/HEAD/LICENSE) |
+| [VLゴシックフォント](https://ja.osdn.net/projects/vlgothic/) | [daisukesuzuki/VLGothic](https://github.com/daisukesuzuki/VLGothic)                   |
 
-　dvc では、Python、Java ののフィーチャーも指定した Dev Container も用意してあります。
+　dvc では、Python や Java のフィーチャーを追加で指定した Dev Container も用意してあります。
 
 - [python](https://github.com/devcontainers/features/tree/main/src/python)
 - [java](https://github.com/devcontainers/features/tree/main/src/java)
+
+　python フィーチャーについては、ベースとするイメージのライセンスに従うと考えて良いです。正確には [Python 3 documentation: History and License](https://docs.python.org/3/license.html) を確認してください。
+
+　java フィーチャーについては、<https://github.com/devcontainers/features/blob/main/src/java/NOTICE.txt> にあるライセンス情報に従います。なお、java フィーチャーでは内部的に [SDKMAN\!](https://github.com/sdkman) というソフトウェアを使っています。このソフトウェアのライセンスは [sdkman\-cli/LICENSE](https://github.com/sdkman/sdkman-cli/blob/master/LICENSE) で確認することができます。
 
 ### desktop-lite によるデスクトップ環境について
 
