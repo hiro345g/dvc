@@ -1,0 +1,8 @@
+{
+  "name": "dvc-novnc-go",
+  "dockerFile": "./Dockerfile",
+  "features": {
+    "ghcr.io/devcontainers/features/go:1": {
+    }
+  }
+}
