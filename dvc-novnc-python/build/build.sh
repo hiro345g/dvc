@@ -1,14 +1,15 @@
 #! /bin/sh
-IMAGE_NAME=dvc:novnc-python-202405
-BUILD_DEVCON_DIR=$(cd $(dirname $0);pwd)
+IMAGE_NAME=dvc:novnc-python-202407
+SCRIPT_DIR=$(dirname "$0")
+BUILD_DEVCON_DIR=$(cd "${SCRIPT_DIR}" || exit 1;pwd)
 PATH=${PATH}:${NPM_CONFIG_PREFIX}/bin
 
 OPT_NO_CACHE=""
-if [ "x${NO_CACHE}" = "xENABLE" ]; then
+if [ "${NO_CACHE}" = "ENABLE" ]; then
     OPT_NO_CACHE="--no-cache"
 fi
 
-cd ${BUILD_DEVCON_DIR}
+cd "${BUILD_DEVCON_DIR}" || exit 1
 npm exec --package=@devcontainers/cli -- \
     devcontainer build \
         ${OPT_NO_CACHE} \
@@ -16,7 +17,7 @@ npm exec --package=@devcontainers/cli -- \
         --config ./devcontainer.json \
         --image-name ${IMAGE_NAME}
 
-if [ "x${USER_NAME}" = "x" ]; then
+if [ "${USER_NAME}" = "" ]; then
     exit 0
 fi
-docker tag ${IMAGE_NAME} ${USER_NAME}/${IMAGE_NAME}
+docker tag ${IMAGE_NAME} "${USER_NAME}/${IMAGE_NAME}"
