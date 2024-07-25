@@ -1,7 +1,7 @@
 name: dvc-novnc-jdk
 services:
   dvc-novnc-jdk:
-    image: hiro345g/dvc:novnc-jdk-202405
+    image: hiro345g/dvc:novnc-jdk-202407
     container_name: dvc-novnc-jdk
     hostname: dvc-novnc-jdk
     init: true
@@ -12,7 +12,7 @@ services:
       dvc-net:
     volumes:
       - workspace-data:/home/node/workspace
-      - dot-sdkman:/usr/local/sdkman
+      # - dot-sdkman:/usr/local/sdkman
       - vscode-server-extensions:/home/node/.vscode-server/extensions
       - type: bind
         source: ${SHARE_DIR:-../workspace_share}
@@ -27,10 +27,10 @@ services:
 volumes:
   workspace-data:
     name: dvc-node-workspace-data
-  dot-sdkman:
-    name: dvc-node-dot-sdkman
   vscode-server-extensions:
     name: dvc-vscode-server-extensions
+  # dot-sdkman:
+  #   name: dvc-node-dot-sdkman
 
 networks:
   dvc-net:
