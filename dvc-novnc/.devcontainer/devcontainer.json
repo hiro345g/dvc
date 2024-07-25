@@ -16,6 +16,20 @@
       "settings": {
       },
       "extensions": [
+        // ---- dvc
+        "dbaeumer.vscode-eslint",
+        "vscode-icons-team.vscode-icons",                
+        "esbenp.prettier-vscode",
+        "oderwat.indent-rainbow",
+        "eamodio.gitlens",
+        "donjayamanne.githistory",
+        "mhutchie.git-graph",
+        "ms-azuretools.vscode-docker",
+        "christian-kohler.npm-intellisense",
+        "vscode-icons-team.vscode-icons",
+        "ms-vscode-remote.remote-containers",
+        "davidanson.vscode-markdownlint",
+        "ms-vscode-remote.vscode-remote-extensionpack"
       ]
     }
   }

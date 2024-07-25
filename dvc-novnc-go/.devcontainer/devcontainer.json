@@ -1,20 +1,27 @@
 {
-  "name": "dvc-base",
-  "dockerComposeFile": [
-    "../compose.yaml"
-  ],
-  "service": "dvc-base",
+  "name": "dvc-novnc-go",
+  "dockerComposeFile": ["../compose.yaml"],
+  "service": "dvc-novnc-go",
   "remoteUser": "node",
   "shutdownAction": "none",
   "workspaceFolder": "/home/node/workspace",
+  "forwardPorts": [6080, 5901],
   "customizations": {
     "vscode": {
       "settings": {
+        "terminal.integrated.defaultProfile.linux": "bash",
+        "editor.formatOnSave": true,
+        "editor.tabSize": 4,
+        "editor.detectIndentation": false,
+        "editor.insertSpaces": true,
+        "editor.defaultFormatter": "esbenp.prettier-vscode"
       },
       "extensions": [
+        // ---- devcontainer feature go
+        "golang.Go",
         // ---- dvc
         "dbaeumer.vscode-eslint",
-        "vscode-icons-team.vscode-icons",                
+        "vscode-icons-team.vscode-icons",
         "esbenp.prettier-vscode",
         "oderwat.indent-rainbow",
         "eamodio.gitlens",

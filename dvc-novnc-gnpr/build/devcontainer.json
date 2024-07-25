@@ -1,0 +1,7 @@
+{
+  "name": "dvc-novnc-gnpr",
+  "dockerFile": "./Dockerfile",
+  "features": {
+    "ghcr.io/devcontainers/features/python:1": {}
+  }
+}

@@ -1,0 +1,7 @@
+{
+  "name": "dvc-novnc-gnr",
+  "dockerFile": "./Dockerfile",
+  "features": {
+    "ghcr.io/devcontainers/features/ruby:1": {}
+  }
+}
