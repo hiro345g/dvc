@@ -2,6 +2,22 @@
 
 Dev Container based on mcr.microsoft.com/devcontainers/typescript-node (desktop-lite, docker-outside-of-docker, git, git-lfs)
 
+ここでは、次のプログラミング言語に対応する開発コンテナー（Dev Container）用のイメージをビルドする方法を提供しています。
+
+| イメージ名       | タグ   | os                   | node | go   | jdk      | php | python | ruby |
+| ---------------- | ------ | -------------------- | ---- | ---- | -------- | --- | ------ | ---- |
+| dvc-base         | 202410 | debian 12 (bookworm) | 22   | -    | -        | -   | -      | -    |
+| dvc-novnc        | 202410 | debian 12 (bookworm) | 22   | -    | -        | -   | -      | -    |
+| dvc-novnc-go     | 202410 | debian 12 (bookworm) | 22   | 1.23 | -        | -   | -      | -    |
+| dvc-novnc-jdk    | 202410 | debian 12 (bookworm) | 22   | -    | 17,21,22 | -   | -      | -    |
+| dvc-novnc-php    | 202410 | debian 12 (bookworm) | 22   | -    | -        | 8.2 | 3.12   | -    |
+| dvc-novnc-python | 202410 | debian 12 (bookworm) | 22   | -    | -        | -   | 3.12   | -    |
+| dvc-novnc-ruby   | 202410 | debian 12 (bookworm) | 22   | -    | -        | -   | -      | 3.1  |
+| dvc-novnc-gnr    | 202410 | debian 12 (bookworm) | 22   | 1.23 | -        | -   | -      | 3.1  |
+| dvc-novnc-gnpr   | 202410 | debian 12 (bookworm) | 22   | 1.23 | -        | -   | 3.12   | 3.1  |
+
+## 説明
+
 これは、`node` コマンドが使える簡易デスクトップ環境を提供する開発コンテナー（Dev Container）を簡単に使えるようにしたものです。次の特長があります。
 
 - VS Code で使える開発コンテナー（Dev Container）
@@ -59,10 +75,11 @@ dvc では、desktop-lite に次の Web ブラウザを追加して使えるよ�
 | [Chromium](https://www.chromium.org/Home/)                    | [chromium/src/LICENSE](https://chromium.googlesource.com/chromium/src/+/HEAD/LICENSE) |
 | [VL ゴシックフォント](https://ja.osdn.net/projects/vlgothic/) | [daisukesuzuki/VLGothic](https://github.com/daisukesuzuki/VLGothic)                   |
 
-dvc では、Go、Java、Python、Ruby のフィーチャーを追加で指定した Dev Container も用意してあります。
+dvc では、Go、Java、PHP、Python、Ruby のフィーチャーを追加で指定した Dev Container も用意してあります。
 
 - [go](https://github.com/devcontainers/features/tree/main/src/go)
 - [java](https://github.com/devcontainers/features/tree/main/src/java)
+- [php](https://github.com/devcontainers/features/tree/main/src/php)
 - [python](https://github.com/devcontainers/features/tree/main/src/python)
 - [ruby](https://github.com/devcontainers/features/tree/main/src/ruby)
 
@@ -70,13 +87,15 @@ go フィーチャーでインストールされる Go については、<https:
 
 java フィーチャーについては、<https://github.com/devcontainers/features/blob/main/src/java/NOTICE.txt> にあるライセンス情報に従います。なお、java フィーチャーでは内部的に [SDKMAN\!](https://github.com/sdkman) というソフトウェアを使っています。このソフトウェアのライセンスは [sdkman\-cli/LICENSE](https://github.com/sdkman/sdkman-cli/blob/master/LICENSE) で確認することができます。
 
+php フィーチャーについては、ベースとするイメージのライセンスに従うと考えて良いです。正確には [PPHP Licensing](https://www.php.net/license/index.php) を確認してください。
+
 python フィーチャーについては、ベースとするイメージのライセンスに従うと考えて良いです。正確には [Python 3 documentation: History and License](https://docs.python.org/3/license.html) を確認してください。
 
 Ruby フィーチャーでインストールされる Ruby については、<https://www.ruby-lang.org/en/about/license.txt> にあるライセンス情報に従います。
 
 なお、dvc では、次のフィーチャーを組み合わせた Dev Container も用意してあります。
 
-| タグ                  | ベース  | フィーチャー     |
+| タグ                  | ベース          | フィーチャー     |
 | --------------------- | --------------- | ---------------- |
 | novnc-gnr-バージョン  | typescript-node | go, ruby         |
 | novnc-gnpr-バージョン | typescript-node | go, python, ruby |
@@ -178,6 +197,7 @@ dvc/
 ├── .gitignore
 ├── LICENSE ... ライセンス
 ├── README.md ... このファイル
+├── build-image/script ... イメージをビルドするスクリプト
 ├── dvc-base/ ... dvc:base 開発コンテナー用
 │   ├── .devcontainer/
 │   │   └── devcontainer.json ... 開発コンテナー用設定ファイル
@@ -194,6 +214,7 @@ dvc/
 ├── dvc-novnc-gnr/ ... dvc:novnc-gnr 開発コンテナー用
 ├── dvc-novnc-go/ ... dvc:novnc-go 開発コンテナー用
 ├── dvc-novnc-jdk/ ... dvc:novnc-jdk 開発コンテナー用
+├── dvc-novnc-php/ ... dvc:novnc-php 開発コンテナー用
 ├── dvc-novnc-python/ ... dvc:novnc-python 開発コンテナー用
 ├── dvc-novnc-ruby/ ... dvc:novnc-ruby 開発コンテナー用
 └── workspace_share/ ... Docker ホストとコンテナーとでファイルを共有するためのディレクトリー
@@ -226,4 +247,4 @@ VNC (Virtual Network Computing) を使ってデスクトップ環境へアクセ
 - <https://github.com/hiro345g/devcon-py-desktop>
 - <https://github.com/hiro345g/devcon-desktop>
 
-Docker イメージが使用するディスク容量を最適化するために、これまでプロジェクトを分けていましたが、同じリポジトリで作成する方針にしました。
+これまではプロジェクトを分けていましたが、Docker イメージが使用するディスク容量を最適化するために、同じリポジトリで作成する方針にしました。
