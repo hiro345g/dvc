@@ -1,4 +1,4 @@
-FROM hiro345g/dvc:base-202407
+FROM hiro345g/dvc:base-202410
 
 COPY ./menu /home/node/.fluxbox/menu
 COPY ./startup /home/node/.fluxbox/startup

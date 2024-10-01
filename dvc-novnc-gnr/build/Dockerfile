@@ -1,1 +1,1 @@
-FROM hiro345g/dvc:novnc-go-202407
+FROM hiro345g/dvc:novnc-go-202410

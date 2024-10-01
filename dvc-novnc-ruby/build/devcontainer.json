@@ -2,7 +2,9 @@
   "name": "dvc-novnc-ruby",
   "dockerFile": "./Dockerfile",
   "features": {
-    "ghcr.io/devcontainers/features/ruby:1": {
+    "ghcr.io/devcontainers/features/ruby:1.2.3": {
+      // EOL 2025-03-31
+      "version":"3.1"
     }
   }
 }

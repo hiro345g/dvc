@@ -2,6 +2,8 @@
   "name": "dvc-novnc-gnr",
   "dockerFile": "./Dockerfile",
   "features": {
-    "ghcr.io/devcontainers/features/ruby:1": {}
+    "ghcr.io/devcontainers/features/ruby:1.2.3": {
+      "version":"3.1"
+    }
   }
 }

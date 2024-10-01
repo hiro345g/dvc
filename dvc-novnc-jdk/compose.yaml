@@ -1,7 +1,7 @@
 name: dvc-novnc-jdk
 services:
   dvc-novnc-jdk:
-    image: hiro345g/dvc:novnc-jdk-202407
+    image: hiro345g/dvc:novnc-jdk-202410
     container_name: dvc-novnc-jdk
     hostname: dvc-novnc-jdk
     init: true
