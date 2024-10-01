@@ -1,0 +1,73 @@
+name: php-apache
+services:
+  php-apache:
+    image: dvc:php8.2-apache2.4
+    container_name: php-apache
+    hostname: php-apache
+    tty: true
+    user: ${USER_UID:-1000}:${USER_GID:-1000}
+    networks:
+      dvc-net:
+    ports:
+      - ${PHP_PORT:-8080}:80
+      - ${PHP_BUILT_IN_PORT:-10080}:10080
+    volumes:
+      - php-apache-data:/var/www
+      - workspace-data:/home/node/workspace
+      - ${LOCAL_WORKSPACE_FOLDER:-..}/php-apache/etc_apache2/conf-available/docker-php.conf:/etc/apache2/conf-available/docker-php.conf
+      - ${LOCAL_WORKSPACE_FOLDER:-..}/php-apache/etc_apache2/sites-available/000-default.conf:/etc/apache2/sites-available/000-default.conf
+      - ${LOCAL_WORKSPACE_FOLDER:-..}/php-apache/usr_local_etc_php/php.ini:/usr/local/etc/php/php.ini
+      - ${LOCAL_WORKSPACE_FOLDER:-..}/../workspace_share/:/share/
+
+  php-apache-mysql:
+    image: mysql:8.0.39-bookworm
+    container_name: php-apache-mysql
+    hostname: php-apache-mysql
+    volumes:
+      - php-apache-mysql-data:/var/lib/mysql
+    networks:
+      dvc-net:
+    ports:
+      - ${MYSQL_PORT:-13306}:3306
+    environment:
+      - MYSQL_ROOT_PASSWORD=${MYSQL_ROOT_PASSWORD:-php-apachepass001}
+      - MYSQL_DATABASE=${MYSQL_DATABASE:-php-apache}
+      - MYSQL_USER=${MYSQL_USER:-php-apache}
+      - MYSQL_PASSWORD=${MYSQL_PASSWORD:-php-apachepass001}
+    healthcheck:
+      test: "mysqladmin ping -h 127.0.0.1 -u root -p$$MYSQL_ROOT_PASSWORD"
+      start_interval: 1s
+      start_period: 10s
+      timeout: 1s
+      interval: 30s
+      retries: 10
+
+  php-apache-adminer:
+    image: adminer:4.8.1-standalone
+    container_name: php-apache-adminer
+    hostname: php-apache-adminer
+    networks:
+      dvc-net:
+    ports:
+      - ${ADMINER_PORT:-5080}:8080
+    environment:
+      ADMINER_DEFAULT_SERVER: php-apache-mysql
+    depends_on:
+      php-apache-mysql:
+        condition: service_healthy
+
+volumes:
+  php-apache-data:
+    name: php-apache-data
+  php-apache-vscode-server-extensions:
+    name: php-apache-vscode-server-extensions
+  php-apache-mysql-data:
+    name: php-apache-mysql-data
+  workspace-data:
+    name: dvc-node-workspace-data
+    external: true
+
+networks:
+  dvc-net:
+    name: dvc-net
+    external: true

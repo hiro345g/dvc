@@ -1,0 +1,93 @@
+{
+    "folders": [
+      {
+        "name": "html",
+        "path": "./html"
+      },
+      {
+        "name": "php-apache",
+        "path": "/php-apache"
+      }
+    ],
+    "settings": {
+    //   "php.executables": "/usr/local/php/current/bin/php",
+    //   "php.executablePath": "/usr/local/php/current/bin/php",
+      "php.validate.run": "onType",
+      "php.validate.executablePath": "/usr/local/php/current/bin/php",
+      "php.validate.enable": false,
+      "php.suggest.basic": false,
+      "php.debug.executablePath": "/usr/local/php/current/bin/php",
+      "[php]": {
+        "editor.formatOnSave": true,
+        "editor.defaultFormatter": "bmewburn.vscode-intelephense-client"
+      },
+      "search.exclude": {
+        "**/node_modules": true,
+        "**/bower_components": true,
+        "**/*.code-search": true,
+        "**/vendor/*/**": true
+      }
+    },
+    "extensions": {
+      "recommendations": [
+        "xdebug.php-debug",
+        "bmewburn.vscode-intelephense-client",
+        "neilbrayfield.php-docblocker",
+        "recca0120.vscode-phpunit",
+        "esbenp.prettier-vscode",
+        "oderwat.indent-rainbow",
+        "eamodio.gitlens",
+        "donjayamanne.githistory",
+        "mhutchie.git-graph",
+        "mikestead.dotenv",
+        "EditorConfig.EditorConfig"
+      ]
+    },
+    "launch": {
+      "version": "0.2.0",
+      "configurations": [
+        {
+          "name": "Listen for Xdebug",
+          "type": "php",
+          "request": "launch",
+          "port": 9003
+        },
+        {
+          "name": "Launch currently open script",
+          "type": "php",
+          "request": "launch",
+          "program": "${file}",
+          "cwd": "${fileDirname}",
+          "port": 0,
+          "runtimeArgs": ["-dxdebug.start_with_request=yes"],
+          "env": {
+            "XDEBUG_MODE": "debug,develop",
+            "XDEBUG_CONFIG": "client_port=${port}"
+          }
+        },
+        {
+          "name": "Launch Built-in web server",
+          "type": "php",
+          "request": "launch",
+          "program": "${workspaceFolder:html}/debug-router.php",
+          "runtimeArgs": [
+            "-S",
+            "0.0.0.0:10080",
+            "-t",
+            "${workspaceFolder:html}",
+            "-d",
+            "xdebug.mode=debug",
+            "-d",
+            "xdebug.start_with_request=yes"
+          ],
+          "port": 9003,
+          "serverReadyAction": {
+            "pattern": "Development Server \\(http://localhost:([0-9]+)\\) started",
+            "uriFormat": "http://localhost:%s",
+            "action": "openExternally"
+          }
+        }
+      ]
+    }
+  }
+  

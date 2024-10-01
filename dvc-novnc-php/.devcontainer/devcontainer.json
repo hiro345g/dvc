@@ -1,0 +1,53 @@
+{
+  "name": "dvc-novnc-php",
+  "dockerComposeFile": ["../compose.yaml"],
+  "service": "dvc-novnc-php",
+  "remoteUser": "node",
+  "shutdownAction": "none",
+  "workspaceFolder": "/home/node/workspace",
+  "postCreateCommand": "sh /script/init.sh",
+  "remoteEnv": {
+		"LOCAL_WORKSPACE_FOLDER": "${localWorkspaceFolder}"
+	},
+  "mounts":[
+    {
+			"source": "${localWorkspaceFolder}/.devcontainer/script",
+			"target": "/script",
+			"type": "bind"
+		}
+  ],
+  "forwardPorts": [6080, 5901],
+  "customizations": {
+    "vscode": {
+      "settings": {
+        "terminal.integrated.defaultProfile.linux": "bash",
+        "editor.formatOnSave": true,
+        "editor.tabSize": 4,
+        "editor.detectIndentation": false,
+        "editor.insertSpaces": true,
+        "editor.defaultFormatter": "esbenp.prettier-vscode"
+      },
+      "extensions": [
+        // ---- devcontainer feature php
+        "xdebug.php-debug",
+        "bmewburn.vscode-intelephense-client",
+        "xdebug.php-pack",
+        "devsense.phptools-vscode",
+        // ---- dvc
+        "dbaeumer.vscode-eslint",
+        "vscode-icons-team.vscode-icons",
+        "esbenp.prettier-vscode",
+        "oderwat.indent-rainbow",
+        "eamodio.gitlens",
+        "donjayamanne.githistory",
+        "mhutchie.git-graph",
+        "ms-azuretools.vscode-docker",
+        "christian-kohler.npm-intellisense",
+        "vscode-icons-team.vscode-icons",
+        "ms-vscode-remote.remote-containers",
+        "davidanson.vscode-markdownlint",
+        "ms-vscode-remote.vscode-remote-extensionpack"
+      ]
+    }
+  }
+}
