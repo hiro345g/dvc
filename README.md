@@ -4,17 +4,17 @@ Dev Container based on mcr.microsoft.com/devcontainers/typescript-node (desktop-
 
 ここでは、次のプログラミング言語に対応する開発コンテナー（Dev Container）用のイメージをビルドする方法を提供しています。
 
-| イメージ名       | タグ   | os                   | node | go   | jdk      | php | python | ruby |
-| ---------------- | ------ | -------------------- | ---- | ---- | -------- | --- | ------ | ---- |
-| dvc-base         | 202410 | debian 12 (bookworm) | 22   | -    | -        | -   | -      | -    |
-| dvc-novnc        | 202410 | debian 12 (bookworm) | 22   | -    | -        | -   | -      | -    |
-| dvc-novnc-go     | 202410 | debian 12 (bookworm) | 22   | 1.23 | -        | -   | -      | -    |
-| dvc-novnc-jdk    | 202410 | debian 12 (bookworm) | 22   | -    | 17,21,22 | -   | -      | -    |
-| dvc-novnc-php    | 202410 | debian 12 (bookworm) | 22   | -    | -        | 8.2 | 3.12   | -    |
-| dvc-novnc-python | 202410 | debian 12 (bookworm) | 22   | -    | -        | -   | 3.12   | -    |
-| dvc-novnc-ruby   | 202410 | debian 12 (bookworm) | 22   | -    | -        | -   | -      | 3.1  |
-| dvc-novnc-gnr    | 202410 | debian 12 (bookworm) | 22   | 1.23 | -        | -   | -      | 3.1  |
-| dvc-novnc-gnpr   | 202410 | debian 12 (bookworm) | 22   | 1.23 | -        | -   | 3.12   | 3.1  |
+| イメージ名 | タグ                | os                   | node | go   | jdk      | php | python | ruby |
+| ---------- | ------------------- | -------------------- | ---- | ---- | -------- | --- | ------ | ---- |
+| dvc        | base-202410         | debian 12 (bookworm) | 22   | -    | -        | -   | -      | -    |
+| dvc        | novnc-202410        | debian 12 (bookworm) | 22   | -    | -        | -   | -      | -    |
+| dvc        | novnc-go-202410     | debian 12 (bookworm) | 22   | 1.23 | -        | -   | -      | -    |
+| dvc        | novnc-jdk-202410    | debian 12 (bookworm) | 22   | -    | 17,21,22 | -   | -      | -    |
+| dvc        | novnc-php-202410    | debian 12 (bookworm) | 22   | -    | -        | 8.2 | 3.12   | -    |
+| dvc        | novnc-python-202410 | debian 12 (bookworm) | 22   | -    | -        | -   | 3.12   | -    |
+| dvc        | novnc-ruby-202410   | debian 12 (bookworm) | 22   | -    | -        | -   | -      | 3.1  |
+| dvc        | novnc-gnr-202410    | debian 12 (bookworm) | 22   | 1.23 | -        | -   | -      | 3.1  |
+| dvc        | novnc-gnpr-202410   | debian 12 (bookworm) | 22   | 1.23 | -        | -   | 3.12   | 3.1  |
 
 ## 説明
 

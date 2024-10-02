@@ -13,7 +13,7 @@ cd ${PROJ_DIR}
 sh build/build.sh
 ```
 
-次に、PHP プログラムをデバッグ実行するときに通過う Apache 用コンテナーのための Docker イメージである php-apache のイメージをについて、`./php-apache/README.md` を参照して作成します。
+次に、PHP プログラムをデバッグ実行するときに通過う Apache 用コンテナーのための Docker イメージである php-apache のイメージをについて、`${PROJ_DIR}/php-apache/README.md` を参照して作成します。
 
 ## 開発環境の用意
 

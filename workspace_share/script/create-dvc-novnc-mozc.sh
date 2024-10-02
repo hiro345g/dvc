@@ -1,4 +1,7 @@
 #!/bin/sh
+#
+# dvc-novnc から用意した dvc-novnc-mozc 用のコンテナー起動用ディレクトリを用意するためのスクリプト
+#
 DIR_NAME=$(dirname "$0")
 BASE_DIR=$(cd "${DIR_NAME}/.." || exit 1;pwd)
 DEV_DIR=${BASE_DIR}/dev
