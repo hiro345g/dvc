@@ -1,7 +1,7 @@
 name: dvc-base
 services:
   dvc-base:
-    image: hiro345g/dvc-base:202410
+    image: hiro345g/dvc-base:202411
     container_name: dvc-base
     hostname: dvc-base
     init: true

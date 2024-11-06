@@ -1,7 +1,7 @@
 #!/bin/sh
 SCRIPT_DIR=$(dirname "$0")
 REPO_DIR=$(cd "${SCRIPT_DIR}/../.." || exit 1; pwd)
-VERSION=202410
+VERSION=202411
 
 for t in novnc-gnpr novnc-gnr novnc-ruby novnc-python novnc-php novnc-jdk novnc-go novnc-mise novnc base; do
     tag="dvc:${t}-${VERSION}"
