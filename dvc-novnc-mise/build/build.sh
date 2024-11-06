@@ -1,18 +1,18 @@
 #! /bin/sh
-IMAGE_NAME=dvc:novnc-202410
+IMAGE_NAME=dvc:novnc-mise-202411
 SCRIPT_DIR=$(dirname "$0")
 BUILD_DEVCON_DIR=$(cd "${SCRIPT_DIR}" || exit 1;pwd)
 PATH=${PATH}:${NPM_CONFIG_PREFIX}/bin
 
-OPT_NO_CACHE=""
 if [ "${NO_CACHE}" = "ENABLE" ]; then
-    OPT_NO_CACHE="--no-cache"
+    DVC_OPT="${DVC_OPT} --no-cache"
 fi
 
 cd "${BUILD_DEVCON_DIR}" || exit 1
+# shellcheck disable=SC2086
 npm exec --package=@devcontainers/cli -- \
     devcontainer build \
-        ${OPT_NO_CACHE} \
+        ${DVC_OPT} \
         --workspace-folder .\
         --config ./devcontainer.json \
         --image-name ${IMAGE_NAME}

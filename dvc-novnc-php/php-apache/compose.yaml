@@ -9,15 +9,24 @@ services:
     networks:
       dvc-net:
     ports:
-      - ${PHP_PORT:-8080}:80
-      - ${PHP_BUILT_IN_PORT:-10080}:10080
+      - ${PHP_IP_PORT:-127.0.0.1:8080}:80
+      - ${PHP_BUILT_IN_IP_PORT:-127.0.0.1:10080}:10080
     volumes:
       - php-apache-data:/var/www
       - workspace-data:/home/node/workspace
-      - ${LOCAL_WORKSPACE_FOLDER:-..}/php-apache/etc_apache2/conf-available/docker-php.conf:/etc/apache2/conf-available/docker-php.conf
-      - ${LOCAL_WORKSPACE_FOLDER:-..}/php-apache/etc_apache2/sites-available/000-default.conf:/etc/apache2/sites-available/000-default.conf
-      - ${LOCAL_WORKSPACE_FOLDER:-..}/php-apache/usr_local_etc_php/php.ini:/usr/local/etc/php/php.ini
-      - ${LOCAL_WORKSPACE_FOLDER:-..}/../workspace_share/:/share/
+      - type: bind
+        source: ${LOCAL_WORKSPACE_FOLDER:-..}/../workspace_share/
+        target: /share/
+      # - type: bind
+      #   source: ${LOCAL_WORKSPACE_FOLDER:-..}/php-apache/etc_apache2/conf-available/docker-php.conf
+      #   target: /etc/apache2/conf-available/docker-php.conf
+      # - type: bind
+      #   source: ${LOCAL_WORKSPACE_FOLDER:-..}/php-apache/etc_apache2/sites-available/000-default.conf
+      #   target: /etc/apache2/sites-available/000-default.conf
+      # - type: bind
+      #   source: ${LOCAL_WORKSPACE_FOLDER:-..}/php-apache/usr_local_etc_php/php.ini
+      #   target: /usr/local/etc/php/php.ini
+      # dvc:php8.2-apache2.4 イメージで使う PHP や Apache2 の設定を変更したい場合は、必要なファイルを用意してから上記のバインドマウントを有効化
 
   php-apache-mysql:
     image: mysql:8.0.39-bookworm
@@ -28,7 +37,7 @@ services:
     networks:
       dvc-net:
     ports:
-      - ${MYSQL_PORT:-13306}:3306
+      - ${MYSQL_IP_PORT:-127.0.0.1:13306}:3306
     environment:
       - MYSQL_ROOT_PASSWORD=${MYSQL_ROOT_PASSWORD:-php-apachepass001}
       - MYSQL_DATABASE=${MYSQL_DATABASE:-php-apache}
@@ -49,7 +58,7 @@ services:
     networks:
       dvc-net:
     ports:
-      - ${ADMINER_PORT:-5080}:8080
+      - ${ADMINER_IP_PORT:-127.0.0.1:5080}:8080
     environment:
       ADMINER_DEFAULT_SERVER: php-apache-mysql
     depends_on:

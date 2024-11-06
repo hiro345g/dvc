@@ -1,11 +1,24 @@
 {
   "name": "dvc-novnc-gnpr",
-  "dockerComposeFile": ["../compose.yaml"],
+  "dockerComposeFile": [
+    "../compose.yaml"
+  ],
   "service": "dvc-novnc-gnpr",
   "remoteUser": "node",
   "shutdownAction": "none",
   "workspaceFolder": "/home/node/workspace",
-  "forwardPorts": [6080, 5901],
+  "forwardPorts": [
+    6080,
+    5901
+  ],
+  "portsAttributes": {
+    "6080": {
+      "label": "novnc"
+    },
+    "5901": {
+      "label": "tigervnc"
+    }
+  },
   "customizations": {
     "vscode": {
       "settings": {
@@ -17,12 +30,12 @@
         "editor.defaultFormatter": "esbenp.prettier-vscode",
         "python.defaultInterpreterPath": "/usr/local/python/current/bin/python",
         "[python]": {
-            // "editor.defaultFormatter": "ms-python.autopep8",
-            "editor.defaultFormatter": "ms-python.black-formatter",
-            "editor.formatOnSave": true
+          // "editor.defaultFormatter": "ms-python.autopep8",
+          "editor.defaultFormatter": "ms-python.black-formatter",
+          "editor.formatOnSave": true
         }
-    },
-    "extensions": [
+      },
+      "extensions": [
         // ---- python profile
         "charliermarsh.ruff",
         "donjayamanne.python-environment-manager",
@@ -44,7 +57,7 @@
         "golang.Go",
         // ---- dvc
         "dbaeumer.vscode-eslint",
-        "vscode-icons-team.vscode-icons",                
+        "vscode-icons-team.vscode-icons",
         "esbenp.prettier-vscode",
         "oderwat.indent-rainbow",
         "eamodio.gitlens",

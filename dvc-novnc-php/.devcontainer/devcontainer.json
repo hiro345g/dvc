@@ -1,22 +1,35 @@
 {
   "name": "dvc-novnc-php",
-  "dockerComposeFile": ["../compose.yaml"],
+  "dockerComposeFile": [
+    "../compose.yaml"
+  ],
   "service": "dvc-novnc-php",
   "remoteUser": "node",
   "shutdownAction": "none",
   "workspaceFolder": "/home/node/workspace",
   "postCreateCommand": "sh /script/init.sh",
   "remoteEnv": {
-		"LOCAL_WORKSPACE_FOLDER": "${localWorkspaceFolder}"
-	},
-  "mounts":[
+    "LOCAL_WORKSPACE_FOLDER": "${localWorkspaceFolder}"
+  },
+  "mounts": [
     {
-			"source": "${localWorkspaceFolder}/.devcontainer/script",
-			"target": "/script",
-			"type": "bind"
-		}
+      "source": "${localWorkspaceFolder}/.devcontainer/script",
+      "target": "/script",
+      "type": "bind"
+    }
   ],
-  "forwardPorts": [6080, 5901],
+  "forwardPorts": [
+    6080,
+    5901
+  ],
+  "portsAttributes": {
+    "6080": {
+      "label": "novnc"
+    },
+    "5901": {
+      "label": "tigervnc"
+    }
+  },
   "customizations": {
     "vscode": {
       "settings": {

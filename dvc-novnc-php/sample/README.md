@@ -6,14 +6,14 @@
 
 ## 開発コンテナー用イメージのビルド
 
-dvc-novnc-php を `${PROJ_DIR}` とします。開発コンテナー用イメージのビルドにはスクリプト `build/build.sh` を実行します。
+dvc-novnc-php ディレクトリーを `${PROJ_DIR}` とします。開発コンテナー用イメージのビルドにはスクリプト `build/build.sh` を実行します。
 
 ```consonle
 cd ${PROJ_DIR}
 sh build/build.sh
 ```
 
-次に、PHP プログラムをデバッグ実行するときに通過う Apache 用コンテナーのための Docker イメージである php-apache のイメージをについて、`${PROJ_DIR}/php-apache/README.md` を参照して作成します。
+次に、PHP プログラムをデバッグ実行するときに通過う Apache 用コンテナーのための Docker イメージである php-apache のイメージについて、`${PROJ_DIR}/php-apache/README.md` を参照して作成します。
 
 ## 開発環境の用意
 
@@ -34,7 +34,7 @@ code /home/node/workspace/php/html.code-workspace
 
 ## デバッグ実行の動作確認
 
-html ワークスペースを開いた VS Code の画面で、`html/index.php` を開き、ブレイクポイントを設定したら準備完了です。
+html ワークスペースを開いた VS Code の画面で、`html/index.php` (dvc-novnc-php コンテナー内での絶対パスは `/home/node/workspace/php/html/index.php`)を開き、ブレイクポイントを設定したら準備完了です。
 
 「実行とデバッグ」を開いて、次の動作確認します。
 
@@ -45,11 +45,19 @@ html ワークスペースを開いた VS Code の画面で、`html/index.php` �
 ### Listen for Xdebug
 
 「Listen for Xdebug」 は php-apache のコンテナーを起動してデバッグする方法になります。
+
 php-apache のコンテナーは、dvc-novnc-php の開発コンテナーと同じ `/home/node/workspace` を同じ Docker ボリュームをマウントすることで共有しているので、デバッグが普通にできます。
 
+dvc-novnc-php コンテナー起動時に `/php-apache` へバインドマウントしてあるので、それを起動して使います。
+
 ```console
-cd ${PROJ_DIR}
-docker compose -f php-apache/compose.yaml up -d
+sh /php-apache/script/up.sh
+```
+
+`docker compose up` コマンドで起動することもできます。
+
+```console
+docker compose -f /php-apache/compose.yaml up -d
 ```
 
 php-apache コンテナーが起動してから VS Code で「Listen for Xdebug」を実行します。
@@ -60,13 +68,22 @@ php-apache コンテナーが起動してから VS Code で「Listen for Xdebug�
 curl http://php-apache:80/
 ```
 
-もしくは、Docker ホストの Web ブラウザから <http://127.0.0.1:8080/> へアクセスすると、VS Code がデバッグ画面になります。
+noVNC を使ってアクセスすることもできます。Docker ホストの Web ブラウザから <http://127.0.0.1:6080/> へアクセスすると、dvc-novnc-php コンテナーの noVNC の画面にアクセスできます。認証情報は `dvc/README.md` にあります。`dvc-novnc/README.md` も参考にしてください。
+
+マウスを右クリックで表示されるメニューから Chromium を選択すると、noVNC の画面内で Chromium が起動します。ここから <http://php-apache/> へアクセスすると、VS Code がデバッグ画面になります。
+
+Docker ホストの Web ブラウザから直接 php-apache コンテナーの apache2 Web サーバーへアクセスしても良いです。Docker ホストの Web ブラウザから <http://127.0.0.1:8080/> へアクセスすると、VS Code がデバッグ画面になります。
 
 デバッグの動作確認ができたら、デバッグを終了（□のボタンをクリック）します。このままだと Apache HTTP Server は起動したままなので、そちらも終了する場合は php-apache コンテナーを削除します。
 
 ```console
-cd ${PROJ_DIR}
-docker compose -f php-apache/compose.yaml down
+sh /php-apache/script/down.sh
+```
+
+`docker compose down` コマンドを使っても良いです。
+
+```console
+docker compose -p php-apache down
 ```
 
 ### Launch currently open script

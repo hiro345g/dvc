@@ -4,17 +4,24 @@ Dev Container based on mcr.microsoft.com/devcontainers/typescript-node (desktop-
 
 ここでは、次のプログラミング言語に対応する開発コンテナー（Dev Container）用のイメージをビルドする方法を提供しています。
 
-| イメージ名 | タグ                | os                   | node | go   | jdk      | php | python | ruby |
-| ---------- | ------------------- | -------------------- | ---- | ---- | -------- | --- | ------ | ---- |
-| dvc        | base-202410         | debian 12 (bookworm) | 22   | -    | -        | -   | -      | -    |
-| dvc        | novnc-202410        | debian 12 (bookworm) | 22   | -    | -        | -   | -      | -    |
-| dvc        | novnc-go-202410     | debian 12 (bookworm) | 22   | 1.23 | -        | -   | -      | -    |
-| dvc        | novnc-jdk-202410    | debian 12 (bookworm) | 22   | -    | 17,21,22 | -   | -      | -    |
-| dvc        | novnc-php-202410    | debian 12 (bookworm) | 22   | -    | -        | 8.2 | 3.12   | -    |
-| dvc        | novnc-python-202410 | debian 12 (bookworm) | 22   | -    | -        | -   | 3.12   | -    |
-| dvc        | novnc-ruby-202410   | debian 12 (bookworm) | 22   | -    | -        | -   | -      | 3.1  |
-| dvc        | novnc-gnr-202410    | debian 12 (bookworm) | 22   | 1.23 | -        | -   | -      | 3.1  |
-| dvc        | novnc-gnpr-202410   | debian 12 (bookworm) | 22   | 1.23 | -        | -   | 3.12   | 3.1  |
+| イメージ名:タグ         | os        | node | vnc  | mise | go   | jdk      | php | python | ruby |
+| ----------------------- | --------- | ---- | ---- | ---- | ---- | -------- | --- | ------ | ---- |
+| dvc:base-202411         | debian 12 | 22   | -    | -    | -    | -        | -   | -      | -    |
+| dvc:novnc-202411        | debian 12 | 22   | 1.12 | -    | -    | -        | -   | -      | -    |
+| dvc:novnc-mise-202411   | debian 12 | 22   | 1.12 | i    | -    | -        | -   | -      | -    |
+| dvc:novnc-go-202411     | debian 12 | 22   | 1.12 | -    | 1.23 | -        | -   | -      | -    |
+| dvc:novnc-jdk-202411    | debian 12 | 22   | 1.12 | -    | -    | 17,21,22 | -   | -      | -    |
+| dvc:novnc-php-202411    | debian 12 | 22   | 1.12 | i    | -    | -        | 8.2 | -      | -    |
+| dvc:novnc-python-202411 | debian 12 | 22   | 1.12 | -    | -    | -        | -   | 3.12   | -    |
+| dvc:novnc-ruby-202411   | debian 12 | 22   | 1.12 | -    | -    | -        | -   | -      | 3.1  |
+| dvc:novnc-gnr-202411    | debian 12 | 22   | 1.12 | -    | 1.23 | -        | -   | -      | 3.1  |
+| dvc:novnc-gnpr-202411   | debian 12 | 22   | 1.12 | -    | 1.23 | -        | -   | 3.12   | 3.1  |
+
+表について補足説明
+
+- debian 12 のコードネームは bookworm
+- vnc は tighervnc
+- mise は jdx/mise の略、i でインストール済みでバージョンは 2024.11.1
 
 ## 説明
 
@@ -55,7 +62,11 @@ Docker イメージは Docker Hub の <https://hub.docker.com/r/hiro345g/dvc> �
 
 なお、このリポジトリで公開している、ローカルマシンでビルドする場合に使うコード（Dockerfile や devcontainer.json）のライセンスは MIT ライセンスとなっています。しかし、ローカルマシンでビルドしたイメージや <https://hub.docker.com/r/hiro345g/dvc> で公開されているイメージを使う場合は、MIT ライセンスではなく、イメージに含まれるソフトウェアのライセンスに同意した上で使う必要があります。そのため、イメージに含まれるソフトウェアについて、ここで説明します。
 
-dvc では、<https://github.com/devcontainers/images/tree/main/src/typescript-node> で公開されている mcr.microsoft.com/devcontainers/typescript-node:18-bookworm の Docker イメージをベースとしています。これは [Debian](https://www.debian.org/) をベースとしているので、基本的なライセンスは <https://www.debian.org/social_contract#guidelines> に従います。
+### mcr.microsoft.com/devcontainers/typescript-node:22-bookworm イメージ
+
+dvc では、<https://github.com/devcontainers/images/tree/main/src/typescript-node> で公開されている mcr.microsoft.com/devcontainers/typescript-node:22-bookworm の Docker イメージをベースとしています。これは [Debian](https://www.debian.org/) をベースとしているので、基本的なライセンスは <https://www.debian.org/social_contract#guidelines> に従います。
+
+### <https://github.com/devcontainers/features/> フィーチャー
 
 ベースに追加でフィーチャー（Feature）を適用しています。具体的には <https://github.com/devcontainers/features/> で公開されている common-utils、desktop-lite、docker-outside-of-docker、git、git-lfs を指定して Docker イメージを作成しています。
 
@@ -67,6 +78,8 @@ dvc では、<https://github.com/devcontainers/images/tree/main/src/typescript-n
 
 これらのフィーチャーは、基本的にはベースとするイメージである Debian のパッケージを使ってソフトウェアをインストールしているので、そのパッケージのライセンスに従います。Debian のパッケージに含まれるソフトウェアであっても Debian のライセンスとは限らない点に注意してください。例えば、`docker-outside-of-docker` に含まれる Docker 関連のソフトウェアは [moby/LICENSE](https://github.com/moby/moby/blob/master/LICENSE) のライセンスに従います。
 
+### Web ブラウザ
+
 dvc では、desktop-lite に次の Web ブラウザを追加して使えるようにしてあります。locale 周りの設定もしてあり、追加で fonts-vlgothic フォントもインストールしてあります。
 
 | ソフトウェア                                                  | ライセンスに関する情報                                                                |
@@ -74,6 +87,8 @@ dvc では、desktop-lite に次の Web ブラウザを追加して使えるよ�
 | [Firefox](https://www.mozilla.org/firefox/) ESR               | [Mozilla Public Licence](https://www.mozilla.org/en-US/MPL/)                          |
 | [Chromium](https://www.chromium.org/Home/)                    | [chromium/src/LICENSE](https://chromium.googlesource.com/chromium/src/+/HEAD/LICENSE) |
 | [VL ゴシックフォント](https://ja.osdn.net/projects/vlgothic/) | [daisukesuzuki/VLGothic](https://github.com/daisukesuzuki/VLGothic)                   |
+
+### プログラミング言語用フィーチャー
 
 dvc では、Go、Java、PHP、Python、Ruby のフィーチャーを追加で指定した Dev Container も用意してあります。
 
@@ -87,7 +102,7 @@ go フィーチャーでインストールされる Go については、<https:
 
 java フィーチャーについては、<https://github.com/devcontainers/features/blob/main/src/java/NOTICE.txt> にあるライセンス情報に従います。なお、java フィーチャーでは内部的に [SDKMAN\!](https://github.com/sdkman) というソフトウェアを使っています。このソフトウェアのライセンスは [sdkman\-cli/LICENSE](https://github.com/sdkman/sdkman-cli/blob/master/LICENSE) で確認することができます。
 
-php フィーチャーについては、ベースとするイメージのライセンスに従うと考えて良いです。正確には [PPHP Licensing](https://www.php.net/license/index.php) を確認してください。
+php フィーチャーについては、ベースとするイメージのライセンスに従うと考えて良いです。正確には [PHP Licensing](https://www.php.net/license/index.php) を確認してください。
 
 python フィーチャーについては、ベースとするイメージのライセンスに従うと考えて良いです。正確には [Python 3 documentation: History and License](https://docs.python.org/3/license.html) を確認してください。
 
@@ -99,6 +114,12 @@ Ruby フィーチャーでインストールされる Ruby については、<ht
 | --------------------- | --------------- | ---------------- |
 | novnc-gnr-バージョン  | typescript-node | go, ruby         |
 | novnc-gnpr-バージョン | typescript-node | go, python, ruby |
+
+### jdx/mise
+
+開発コンテナーで使いたいプログラミング言語用のツールについて、バージョンを変更したい場合もあります。それに対応するために、[mise](https://github.com/jdx/mise) をインストールしたイメージも用意してあります。
+
+mise のライセンスは <https://github.com/jdx/mise?tab=MIT-1-ov-file#readme> にあります。
 
 ### desktop-lite によるデスクトップ環境について
 

@@ -1,7 +1,7 @@
 name: dvc-novnc
 services:
   dvc-novnc:
-    image: hiro345g/dvc:novnc-202410
+    image: hiro345g/dvc:novnc-202411
     container_name: dvc-novnc
     hostname: dvc-novnc
     init: true
@@ -22,6 +22,9 @@ services:
       ENV LC_ALL: ja_JP.UTF-8
       EDITOR: code
       NPM_CONFIG_USERCONFIG: ${NPM_CONFIG_USERCONFIG:-/home/node/.npmrc}
+      # VNC_PASSWORD: ${VNC_PASSWORD:-noPassword}
+      # - .env へ VNC_PASSWORD を指定して、上の行の VNC_PASSWORD を有効にすることで、VNC のパスワード変更が可能
+      # - 上にある VNC_PASSWORD の行を有効にしただけならパスワード認証が無効（ VNC_PASSWORD の値が noPassword だと認証が無効）
 
 volumes:
   workspace-data:

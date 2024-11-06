@@ -11,14 +11,21 @@
     6080,
     5901
   ],
+  "portsAttributes": {
+    "6080": {
+      "label": "novnc"
+    },
+    "5901": {
+      "label": "tigervnc"
+    }
+  },
   "customizations": {
     "vscode": {
-      "settings": {
-      },
+      "settings": {},
       "extensions": [
         // ---- dvc
         "dbaeumer.vscode-eslint",
-        "vscode-icons-team.vscode-icons",                
+        "vscode-icons-team.vscode-icons",
         "esbenp.prettier-vscode",
         "oderwat.indent-rainbow",
         "eamodio.gitlens",

@@ -1,0 +1,4 @@
+{
+  "name": "dvc-novnc-mise",
+  "dockerFile": "./Dockerfile"
+}

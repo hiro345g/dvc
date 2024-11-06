@@ -6,6 +6,14 @@
   "shutdownAction": "none",
   "workspaceFolder": "/home/node/workspace",
   "forwardPorts": [6080, 5901],
+  "portsAttributes": {
+    "6080": {
+      "label": "novnc"
+    },
+    "5901": {
+      "label": "tigervnc"
+    }
+  },
   "customizations": {
     "vscode": {
       "settings": {

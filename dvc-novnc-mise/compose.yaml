@@ -1,0 +1,37 @@
+name: dvc-novnc-mise
+services:
+  dvc-novnc-mise:
+    image: hiro345g/dvc:novnc-mise-202411
+    container_name: dvc-novnc-mise
+    hostname: dvc-novnc-mise
+    init: true
+    tty: true
+    user: node
+    working_dir: /home/node/workspace
+    networks:
+      dvc-net:
+    volumes:
+      - mise-data:/home/node/.local/share/mise
+      - workspace-data:/home/node/workspace
+      - vscode-server-extensions:/home/node/.vscode-server/extensions
+      - type: bind
+        source: ${SHARE_DIR:-../workspace_share}
+        target: /share
+    environment:
+      ENV LANGUAGE: ja_JP.UTF-8
+      ENV LANG: ja_JP.UTF-8
+      ENV LC_ALL: ja_JP.UTF-8
+      EDITOR: code
+      NPM_CONFIG_USERCONFIG: ${NPM_CONFIG_USERCONFIG:-/home/node/.npmrc}
+
+volumes:
+  mise-data:
+    name: dvc-mise-data
+  workspace-data:
+    name: dvc-node-workspace-data
+  vscode-server-extensions:
+    name: dvc-vscode-server-extensions
+
+networks:
+  dvc-net:
+    name: dvc-net

@@ -1,7 +1,7 @@
 name: dvc-novnc-python
 services:
   dvc-novnc-python:
-    image: hiro345g/dvc:novnc-python-202410
+    image: hiro345g/dvc:novnc-python-202411
     container_name: dvc-novnc-python
     hostname: dvc-novnc-python
     init: true
