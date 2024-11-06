@@ -10,7 +10,7 @@ Dev Container based on mcr.microsoft.com/devcontainers/typescript-node (desktop-
 | dvc:novnc-202411        | debian 12 | 22   | 1.12 | -    | -    | -        | -   | -      | -    |
 | dvc:novnc-mise-202411   | debian 12 | 22   | 1.12 | i    | -    | -        | -   | -      | -    |
 | dvc:novnc-go-202411     | debian 12 | 22   | 1.12 | -    | 1.23 | -        | -   | -      | -    |
-| dvc:novnc-jdk-202411    | debian 12 | 22   | 1.12 | -    | -    | 17,21,22 | -   | -      | -    |
+| dvc:novnc-jdk-202411    | debian 12 | 22   | 1.12 | -    | -    | 17,21,23 | -   | -      | -    |
 | dvc:novnc-php-202411    | debian 12 | 22   | 1.12 | i    | -    | -        | 8.2 | -      | -    |
 | dvc:novnc-python-202411 | debian 12 | 22   | 1.12 | -    | -    | -        | -   | 3.12   | -    |
 | dvc:novnc-ruby-202411   | debian 12 | 22   | 1.12 | -    | -    | -        | -   | -      | 3.1  |
