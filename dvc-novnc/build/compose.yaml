@@ -1,0 +1,5 @@
+name: dvc-novnc
+services:
+  dvc-novnc:
+    build: .
+    image: dvc:novnc-202411
