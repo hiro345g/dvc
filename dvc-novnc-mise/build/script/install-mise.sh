@@ -6,7 +6,7 @@ curl https://mise.run | sh
 cat << EOS >> ~/.bashrc
 if [[ "\$TERM_PROGRAM" == "vscode" ]]; then
   eval "\$(~/.local/bin/mise activate bash --shims)"
-elif; then
+else
   eval "\$(~/.local/bin/mise activate bash)"
 fi
 EOS
