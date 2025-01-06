@@ -4,23 +4,23 @@ Dev Container based on mcr.microsoft.com/devcontainers/typescript-node (desktop-
 
 ここでは、次のプログラミング言語に対応する開発コンテナー（Dev Container）用のイメージをビルドする方法を提供しています。
 
-| イメージ名:タグ         | os        | node | vnc  | mise | go   | jdk      | php | python | ruby |
-| ----------------------- | --------- | ---- | ---- | ---- | ---- | -------- | --- | ------ | ---- |
-| dvc:base-202411         | debian 12 | 22   | -    | -    | -    | -        | -   | -      | -    |
-| dvc:novnc-202411        | debian 12 | 22   | 1.12 | -    | -    | -        | -   | -      | -    |
-| dvc:novnc-mise-202411   | debian 12 | 22   | 1.12 | i    | -    | -        | -   | -      | -    |
-| dvc:novnc-go-202411     | debian 12 | 22   | 1.12 | -    | 1.23 | -        | -   | -      | -    |
-| dvc:novnc-jdk-202411    | debian 12 | 22   | 1.12 | -    | -    | 17,21,23 | -   | -      | -    |
-| dvc:novnc-php-202411    | debian 12 | 22   | 1.12 | i    | -    | -        | 8.2 | -      | -    |
-| dvc:novnc-python-202411 | debian 12 | 22   | 1.12 | -    | -    | -        | -   | 3.12   | -    |
-| dvc:novnc-ruby-202411   | debian 12 | 22   | 1.12 | -    | -    | -        | -   | -      | 3.1  |
-| dvc:novnc-gnr-202411    | debian 12 | 22   | 1.12 | -    | 1.23 | -        | -   | -      | 3.1  |
-| dvc:novnc-gnpr-202411   | debian 12 | 22   | 1.12 | -    | 1.23 | -        | -   | 3.12   | 3.1  |
+| イメージ名:タグ         | os       | node | vnc  | mise | go   | jdk      | php | python | ruby |
+| ----------------------- | -------- | ---- | ---- | ---- | ---- | -------- | --- | ------ | ---- |
+| dvc:base-202411         | bookworm | 22   | -    | -    | -    | -        | -   | -      | -    |
+| dvc:novnc-202411        | bookworm | 22   | 1.12 | -    | -    | -        | -   | -      | -    |
+| dvc:novnc-mise-202411   | bookworm | 22   | 1.12 | i    | -    | -        | -   | -      | -    |
+| dvc:novnc-go-202411     | bookworm | 22   | 1.12 | -    | 1.23 | -        | -   | -      | -    |
+| dvc:novnc-jdk-202411    | bookworm | 22   | 1.12 | -    | -    | 17,21,23 | -   | -      | -    |
+| dvc:novnc-php-202411    | bookworm | 22   | 1.12 | i    | -    | -        | 8.2 | -      | -    |
+| dvc:novnc-python-202411 | bookworm | 22   | 1.12 | -    | -    | -        | -   | 3.12   | -    |
+| dvc:novnc-ruby-202411   | bookworm | 22   | 1.12 | -    | -    | -        | -   | -      | 3.1  |
+| dvc:novnc-gnr-202411    | bookworm | 22   | 1.12 | -    | 1.23 | -        | -   | -      | 3.1  |
+| dvc:novnc-gnpr-202411   | bookworm | 22   | 1.12 | -    | 1.23 | -        | -   | 3.12   | 3.1  |
 
 表について補足説明
 
-- debian 12 のコードネームは bookworm
-- vnc は tighervnc
+- bookworm は debian 12 のコードネーム
+- vnc は tigervnc
 - mise は jdx/mise の略、i でインストール済みでバージョンは 2024.11.1
 
 ## 説明
