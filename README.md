@@ -245,6 +245,7 @@ dvc/
 ├── dvc-novnc-gnr/ ... dvc:novnc-gnr 開発コンテナー用
 ├── dvc-novnc-go/ ... dvc:novnc-go 開発コンテナー用
 ├── dvc-novnc-jdk/ ... dvc:novnc-jdk 開発コンテナー用
+├── dvc-novnc-mise/ ... dvc:novnc-mise 開発コンテナー用
 ├── dvc-novnc-php/ ... dvc:novnc-php 開発コンテナー用
 ├── dvc-novnc-python/ ... dvc:novnc-python 開発コンテナー用
 ├── dvc-novnc-ruby/ ... dvc:novnc-ruby 開発コンテナー用
