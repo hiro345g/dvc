@@ -6,22 +6,22 @@ Dev Container based on mcr.microsoft.com/devcontainers/typescript-node (desktop-
 
 | イメージ名:タグ         | os       | node | vnc  | mise | go   | jdk      | php | python | ruby |
 | ----------------------- | -------- | ---- | ---- | ---- | ---- | -------- | --- | ------ | ---- |
-| dvc:base-202411         | bookworm | 22   | -    | -    | -    | -        | -   | -      | -    |
-| dvc:novnc-202411        | bookworm | 22   | 1.12 | -    | -    | -        | -   | -      | -    |
-| dvc:novnc-mise-202411   | bookworm | 22   | 1.12 | i    | -    | -        | -   | -      | -    |
-| dvc:novnc-go-202411     | bookworm | 22   | 1.12 | -    | 1.23 | -        | -   | -      | -    |
-| dvc:novnc-jdk-202411    | bookworm | 22   | 1.12 | -    | -    | 17,21,23 | -   | -      | -    |
-| dvc:novnc-php-202411    | bookworm | 22   | 1.12 | i    | -    | -        | 8.2 | -      | -    |
-| dvc:novnc-python-202411 | bookworm | 22   | 1.12 | -    | -    | -        | -   | 3.12   | -    |
-| dvc:novnc-ruby-202411   | bookworm | 22   | 1.12 | -    | -    | -        | -   | -      | 3.1  |
-| dvc:novnc-gnr-202411    | bookworm | 22   | 1.12 | -    | 1.23 | -        | -   | -      | 3.1  |
-| dvc:novnc-gnpr-202411   | bookworm | 22   | 1.12 | -    | 1.23 | -        | -   | 3.12   | 3.1  |
+| dvc:base-202502         | bookworm | 22   | -    | -    | -    | -        | -   | -      | -    |
+| dvc:novnc-202502        | bookworm | 22   | 1.12 | -    | -    | -        | -   | -      | -    |
+| dvc:novnc-mise-202502   | bookworm | 22   | 1.12 | i    | -    | -        | -   | -      | -    |
+| dvc:novnc-go-202502     | bookworm | 22   | 1.12 | -    | 1.23 | -        | -   | -      | -    |
+| dvc:novnc-jdk-202502    | bookworm | 22   | 1.12 | -    | -    | 17,21,23 | -   | -      | -    |
+| dvc:novnc-php-202502    | bookworm | 22   | 1.12 | i    | -    | -        | 8.2 | -      | -    |
+| dvc:novnc-python-202502 | bookworm | 22   | 1.12 | -    | -    | -        | -   | 3.12   | -    |
+| dvc:novnc-ruby-202502   | bookworm | 22   | 1.12 | -    | -    | -        | -   | -      | 3.4  |
+| dvc:novnc-gnr-202502    | bookworm | 22   | 1.12 | -    | 1.23 | -        | -   | -      | 3.4  |
+| dvc:novnc-gnpr-202502   | bookworm | 22   | 1.12 | -    | 1.23 | -        | -   | 3.12   | 3.4  |
 
 表について補足説明
 
 - bookworm は debian 12 のコードネーム
 - vnc は tigervnc
-- mise は jdx/mise の略、i でインストール済みでバージョンは 2024.11.1
+- mise は jdx/mise の略、i でインストール済みでバージョンは 2025.2.3
 
 ## 説明
 
@@ -128,6 +128,16 @@ desktop-lite によるデスクトップ環境では、次のソフトウェア�
 - [FluxBox](http://fluxbox.org/download/)
 - [TightVNC](https://www.tightvnc.com/)
 - [noVNC](https://novnc.com/)
+
+### 白源フォントについて
+
+Nerd フォントによる表示に対応するため、白源フォントを含めてあります。
+
+- [プログラミングフォント 白源 (はくげん／HackGen)](https://github.com/yuru7/HackGen)
+
+ライセンスは下記に説明があります。
+
+- [HackGen License](https://github.com/yuru7/HackGen?tab=License-1-ov-file#readme)
 
 ### Dev Container について
 
