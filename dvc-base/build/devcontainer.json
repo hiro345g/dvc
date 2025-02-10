@@ -1,6 +1,7 @@
 {
     "name": "dvc-base",
     "dockerFile": "./Dockerfile",
+    // https://github.com/devcontainers/features
     "features": {
         "ghcr.io/devcontainers/features/common-utils:2.5.2": {},
         "ghcr.io/devcontainers/features/docker-outside-of-docker:1.6.0": {
