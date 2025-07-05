@@ -1,16 +1,11 @@
 {
-  "name": "dvc-gnpr",
-  "dockerComposeFile": [
-    "../compose.yaml"
-  ],
-  "service": "dvc-gnpr",
+  "name": "dvc-ruby",
+  "dockerComposeFile": ["../compose.yaml"],
+  "service": "dvc-ruby",
   "remoteUser": "node",
   "shutdownAction": "none",
   "workspaceFolder": "/home/node/workspace",
-  "forwardPorts": [
-    6080,
-    5901
-  ],
+  "forwardPorts": [6080, 5901],
   "portsAttributes": {
     "6080": {
       "label": "novnc"
@@ -27,34 +22,11 @@
         "editor.tabSize": 4,
         "editor.detectIndentation": false,
         "editor.insertSpaces": true,
-        "editor.defaultFormatter": "esbenp.prettier-vscode",
-        "python.defaultInterpreterPath": "/usr/local/python/current/bin/python",
-        "[python]": {
-          // "editor.defaultFormatter": "ms-python.autopep8",
-          "editor.defaultFormatter": "ms-python.black-formatter",
-          "editor.formatOnSave": true
-        }
+        "editor.defaultFormatter": "esbenp.prettier-vscode"
       },
       "extensions": [
-        // ---- python profile
-        "charliermarsh.ruff",
-        "donjayamanne.python-environment-manager",
-        "ms-python.black-formatter",
-        "njpwerner.autodocstring",
-        "tamasfe.even-better-toml",
-        // ---- devcontainer feature python
-        "ms-python.python",
-        "ms-python.vscode-pylance",
-        // "ms-python.autopep8", // replaced by ms-python.black-formatter
-        // ---- dvc:gnpr
-        "LittleFoxTeam.vscode-python-test-adapter",
-        "ms-python.debugpy",
-        "shardulm94.trailing-spaces",
-        "usernamehw.errorlens",
         // ---- devcontainer feature ruby
         "shopify.ruby-lsp",
-        // ---- devcontainer feature go
-        "golang.Go",
         // ---- dvc
         "dbaeumer.vscode-eslint",
         "vscode-icons-team.vscode-icons",

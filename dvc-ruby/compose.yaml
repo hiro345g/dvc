@@ -1,9 +1,9 @@
-name: dvc-gnpr
+name: dvc-ruby
 services:
-  dvc-gnpr:
-    image: hiro345g/dvc:gnpr-202507
-    container_name: dvc-gnpr
-    hostname: dvc-gnpr
+  dvc-ruby:
+    image: hiro345g/dvc:ruby-202507
+    container_name: dvc-ruby
+    hostname: dvc-ruby
     init: true
     tty: true
     user: node

@@ -1,9 +1,9 @@
-name: dvc-gnpr
+name: dvc-php
 services:
-  dvc-gnpr:
-    image: hiro345g/dvc:gnpr-202507
-    container_name: dvc-gnpr
-    hostname: dvc-gnpr
+  dvc-php:
+    image: hiro345g/dvc:php-202507
+    container_name: dvc-php
+    hostname: dvc-php
     init: true
     tty: true
     user: node
@@ -11,8 +11,12 @@ services:
     networks:
       dvc-net:
     volumes:
+      - mise-data:/home/node/.local/share/mise
       - workspace-data:/home/node/workspace
       - vscode-server-extensions:/home/node/.vscode-server/extensions
+      - type: bind
+        source: ${PROJ_DIR:-.}/php-apache
+        target: /php-apache
       - type: bind
         source: ${SHARE_DIR:-../workspace_share}
         target: /share
@@ -24,6 +28,8 @@ services:
       NPM_CONFIG_USERCONFIG: ${NPM_CONFIG_USERCONFIG:-/home/node/.npmrc}
 
 volumes:
+  mise-data:
+    name: dvc-mise-data
   workspace-data:
     name: dvc-node-workspace-data
   vscode-server-extensions:

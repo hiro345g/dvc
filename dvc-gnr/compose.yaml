@@ -1,9 +1,9 @@
-name: dvc-gnpr
+name: dvc-gnr
 services:
-  dvc-gnpr:
-    image: hiro345g/dvc:gnpr-202507
-    container_name: dvc-gnpr
-    hostname: dvc-gnpr
+  dvc-gnr:
+    image: hiro345g/dvc:gnr-202507
+    container_name: dvc-gnr
+    hostname: dvc-gnr
     init: true
     tty: true
     user: node

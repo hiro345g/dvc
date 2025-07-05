@@ -1,9 +1,9 @@
-name: dvc-gnpr
+name: dvc
 services:
-  dvc-gnpr:
-    image: hiro345g/dvc:gnpr-202507
-    container_name: dvc-gnpr
-    hostname: dvc-gnpr
+  dvc:
+    image: hiro345g/dvc:202507
+    container_name: dvc
+    hostname: dvc
     init: true
     tty: true
     user: node
@@ -11,6 +11,7 @@ services:
     networks:
       dvc-net:
     volumes:
+      - mise-data:/home/node/.local/share/mise
       - workspace-data:/home/node/workspace
       - vscode-server-extensions:/home/node/.vscode-server/extensions
       - type: bind
@@ -24,6 +25,8 @@ services:
       NPM_CONFIG_USERCONFIG: ${NPM_CONFIG_USERCONFIG:-/home/node/.npmrc}
 
 volumes:
+  mise-data:
+    name: dvc-mise-data
   workspace-data:
     name: dvc-node-workspace-data
   vscode-server-extensions:

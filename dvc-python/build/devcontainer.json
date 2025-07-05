@@ -1,5 +1,5 @@
 {
-  "name": "dvc-gnpr",
+  "name": "dvc-python",
   "dockerFile": "./Dockerfile",
   "features": {
     "ghcr.io/devcontainers/features/python:1.7.1": {
