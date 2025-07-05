@@ -1,0 +1,71 @@
+{
+    "name": "dvc-python",
+    "dockerComposeFile": [
+        "../compose.yaml"
+    ],
+    "service": "dvc-python",
+    "remoteUser": "node",
+    "shutdownAction": "none",
+    "workspaceFolder": "/home/node/workspace",
+    "forwardPorts": [
+        6080,
+        5901
+    ],
+    "portsAttributes": {
+        "6080": {
+            "label": "novnc"
+        },
+        "5901": {
+            "label": "tigervnc"
+        }
+    },
+    "customizations": {
+        "vscode": {
+            "settings": {
+                "terminal.integrated.defaultProfile.linux": "bash",
+                "editor.formatOnSave": true,
+                "editor.tabSize": 4,
+                "editor.detectIndentation": false,
+                "editor.insertSpaces": true,
+                "editor.defaultFormatter": "esbenp.prettier-vscode",
+                "python.defaultInterpreterPath": "/usr/local/python/current/bin/python",
+                "[python]": {
+                    // "editor.defaultFormatter": "ms-python.autopep8",
+                    "editor.defaultFormatter": "ms-python.black-formatter",
+                    "editor.formatOnSave": true
+                }
+            },
+            "extensions": [
+                // ---- python profile
+                "charliermarsh.ruff",
+                "donjayamanne.python-environment-manager",
+                "ms-python.black-formatter",
+                "njpwerner.autodocstring",
+                "tamasfe.even-better-toml",
+                // ---- devcontainer feature python
+                "ms-python.python",
+                "ms-python.vscode-pylance",
+                // "ms-python.autopep8", // replaced by ms-python.black-formatter
+                // ---- dvc:python
+                "LittleFoxTeam.vscode-python-test-adapter",
+                "ms-python.debugpy",
+                "shardulm94.trailing-spaces",
+                "usernamehw.errorlens",
+                // ---- dvc
+                "dbaeumer.vscode-eslint",
+                "vscode-icons-team.vscode-icons",
+                "esbenp.prettier-vscode",
+                "oderwat.indent-rainbow",
+                "eamodio.gitlens",
+                "donjayamanne.githistory",
+                "mhutchie.git-graph",
+                "ms-azuretools.vscode-docker",
+                "christian-kohler.npm-intellisense",
+                "vscode-icons-team.vscode-icons",
+                "ms-vscode-remote.remote-containers",
+                "davidanson.vscode-markdownlint",
+                "ms-vscode-remote.vscode-remote-extensionpack"
+            ]
+        }
+    }
+}

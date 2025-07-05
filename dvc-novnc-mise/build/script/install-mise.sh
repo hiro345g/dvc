@@ -23,4 +23,4 @@ EOS
 # echo '~/.local/bin/mise activate fish | source' >> ~/.config/fish/config.fish
 
 # bash -c 'mise -y use -g node@system'
-# bash -c 'mise -y install node@20.18.0'
+# bash -c 'mise -y install node@20.19.3'

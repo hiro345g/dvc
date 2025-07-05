@@ -4,24 +4,25 @@ Dev Container based on mcr.microsoft.com/devcontainers/typescript-node (desktop-
 
 ここでは、次のプログラミング言語に対応する開発コンテナー（Dev Container）用のイメージをビルドする方法を提供しています。
 
-| イメージ名:タグ         | os       | node | vnc  | mise | go   | jdk      | php | python | ruby |
-| ----------------------- | -------- | ---- | ---- | ---- | ---- | -------- | --- | ------ | ---- |
-| dvc:base-202502         | bookworm | 22   | -    | -    | -    | -        | -   | -      | -    |
-| dvc:novnc-202502        | bookworm | 22   | 1.12 | -    | -    | -        | -   | -      | -    |
-| dvc:novnc-mise-202502   | bookworm | 22   | 1.12 | i    | -    | -        | -   | -      | -    |
-| dvc:novnc-go-202502     | bookworm | 22   | 1.12 | -    | 1.23 | -        | -   | -      | -    |
-| dvc:novnc-jdk-202502    | bookworm | 22   | 1.12 | -    | -    | 17,21,23 | -   | -      | -    |
-| dvc:novnc-php-202502    | bookworm | 22   | 1.12 | i    | -    | -        | 8.2 | -      | -    |
-| dvc:novnc-python-202502 | bookworm | 22   | 1.12 | -    | -    | -        | -   | 3.12   | -    |
-| dvc:novnc-ruby-202502   | bookworm | 22   | 1.12 | -    | -    | -        | -   | -      | 3.4  |
-| dvc:novnc-gnr-202502    | bookworm | 22   | 1.12 | -    | 1.23 | -        | -   | -      | 3.4  |
-| dvc:novnc-gnpr-202502   | bookworm | 22   | 1.12 | -    | 1.23 | -        | -   | 3.12   | 3.4  |
+| イメージ名:タグ       | os        | node | vnc   | mise | go   | jdk      | php | python | ruby |
+| --------------------- | --------- | ---- | ----- | ---- | ---- | -------- | --- | ------ | ---- |
+| dvc:base-202507       | debian 12 | 22   | -     | -    | -    | -        | -   | -      | -    |
+| dvc:novnc-202507      | debian 12 | 22   | 1.2.0 | -    | -    | -        | -   | -      | -    |
+| dvc:novnc-mise-202507 | debian 12 | 22   | 1.2.0 | i    | -    | -        | -   | -      | -    |
+| dvc:202507            | debian 12 | 22   | 1.2.0 | i    | -    | -        | -   | -      | -    |
+| dvc:go-202507         | debian 12 | 22   | 1.2.0 | i    | 1.24 | -        | -   | -      | -    |
+| dvc:jdk-202507        | debian 12 | 22   | 1.2.0 | i    | -    | 17,21,23 | -   | -      | -    |
+| dvc:php-202507        | debian 12 | 22   | 1.2.0 | i    | -    | -        | 8.2 | -      | -    |
+| dvc:python-202507     | debian 12 | 22   | 1.2.0 | i    | -    | -        | -   | 3.12   | -    |
+| dvc:ruby-202507       | debian 12 | 22   | 1.2.0 | i    | -    | -        | -   | -      | 3.2  |
+| dvc:gnr-202507        | debian 12 | 22   | 1.2.0 | i    | 1.24 | -        | -   | -      | 3.1  |
+| dvc:gnpr-202507       | debian 12 | 22   | 1.2.0 | i    | 1.24 | -        | -   | 3.12   | 3.1  |
 
 表について補足説明
 
-- bookworm は debian 12 のコードネーム
-- vnc は tigervnc
-- mise は jdx/mise の略、i でインストール済みでバージョンは 2025.2.3
+- debian 12 のコードネームは bookworm
+- vnc は tighervnc
+- mise は jdx/mise の略、i でインストール済みでバージョンは 2025.7.0
 
 ## 説明
 
@@ -110,10 +111,10 @@ Ruby フィーチャーでインストールされる Ruby については、<ht
 
 なお、dvc では、次のフィーチャーを組み合わせた Dev Container も用意してあります。
 
-| タグ                  | ベース          | フィーチャー     |
-| --------------------- | --------------- | ---------------- |
-| novnc-gnr-バージョン  | typescript-node | go, ruby         |
-| novnc-gnpr-バージョン | typescript-node | go, python, ruby |
+| タグ            | ベース          | フィーチャー     |
+| --------------- | --------------- | ---------------- |
+| gnr-バージョン  | typescript-node | go, ruby         |
+| gnpr-バージョン | typescript-node | go, python, ruby |
 
 ### jdx/mise
 
@@ -172,10 +173,10 @@ VS Code の拡張機能である Docker と Dev Containers を VS Code へイン
 
 ```console
 $ cat /etc/os-release
-PRETTY_NAME="Ubuntu 22.04.4 LTS"
+PRETTY_NAME="Ubuntu 22.04.5 LTS"
 NAME="Ubuntu"
 VERSION_ID="22.04"
-VERSION="22.04.4 LTS (Jammy Jellyfish)"
+VERSION="22.04.5 LTS (Jammy Jellyfish)"
 VERSION_CODENAME=jammy
 ID=ubuntu
 ID_LIKE=debian
@@ -187,36 +188,35 @@ UBUNTU_CODENAME=jammy
 
 $ docker version
 Client: Docker Engine - Community
- Cloud integration: v1.0.35
- Version:           27.1.1
- API version:       1.46
- Go version:        go1.21.12
- Git commit:        6312585
- Built:             Tue Jul 23 19:57:01 2024
+ Version:           28.3.1
+ API version:       1.51
+ Go version:        go1.24.4
+ Git commit:        38b7060
+ Built:             Wed Jul  2 20:56:22 2025
  OS/Arch:           linux/amd64
  Context:           default
 
 Server: Docker Engine - Community
  Engine:
-  Version:          27.1.1
-  API version:      1.46 (minimum version 1.24)
-  Go version:       go1.21.12
-  Git commit:       cc13f95
-  Built:            Tue Jul 23 19:57:01 2024
+  Version:          28.3.1
+  API version:      1.51 (minimum version 1.24)
+  Go version:       go1.24.4
+  Git commit:       5beb93d
+  Built:            Wed Jul  2 20:56:22 2025
   OS/Arch:          linux/amd64
   Experimental:     false
  containerd:
-  Version:          1.7.19
-  GitCommit:        2bf793ef6dc9a18e00cb12efb64355c2c9d5eb41
+  Version:          1.7.27
+  GitCommit:        05044ec0a9a75232cad458027ca83437aae3f4da
  runc:
-  Version:          1.7.19
-  GitCommit:        v1.1.13-0-g58aa920
+  Version:          1.2.5
+  GitCommit:        v1.2.5-0-g59923ef
  docker-init:
   Version:          0.19.0
   GitCommit:        de40ad0
 
 $ docker compose version
-Docker Compose version v2.19.1
+Docker Compose version v2.29.2-desktop.2
 ```
 
 ## ファイルの構成
@@ -240,15 +240,15 @@ dvc/
 │   │   └── node.dot.npmrc
 │   ├── compose.yaml ... dvc イメージ起動用 compose.yaml
 │   └── sample.env ... .env ファイルのサンプル
+├── dvc-gnpr/ ... dvc:gnpr 開発コンテナー用
+├── dvc-gnr/ ... dvc:gnr 開発コンテナー用
+├── dvc-go/ ... dvc:go 開発コンテナー用
+├── dvc-jdk/ ... dvc:jdk 開発コンテナー用
 ├── dvc-novnc/ ... dvc:novnc 開発コンテナー用
-├── dvc-novnc-gnpr/ ... dvc:novnc-gnpr 開発コンテナー用
-├── dvc-novnc-gnr/ ... dvc:novnc-gnr 開発コンテナー用
-├── dvc-novnc-go/ ... dvc:novnc-go 開発コンテナー用
-├── dvc-novnc-jdk/ ... dvc:novnc-jdk 開発コンテナー用
 ├── dvc-novnc-mise/ ... dvc:novnc-mise 開発コンテナー用
-├── dvc-novnc-php/ ... dvc:novnc-php 開発コンテナー用
-├── dvc-novnc-python/ ... dvc:novnc-python 開発コンテナー用
-├── dvc-novnc-ruby/ ... dvc:novnc-ruby 開発コンテナー用
+├── dvc-php/ ... dvc:php 開発コンテナー用
+├── dvc-python/ ... dvc:python 開発コンテナー用
+├── dvc-ruby/ ... dvc:ruby 開発コンテナー用
 └── workspace_share/ ... Docker ホストとコンテナーとでファイルを共有するためのディレクトリー
     ├── .gitkeep
     ├── dev/

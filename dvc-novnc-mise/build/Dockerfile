@@ -1,4 +1,4 @@
-FROM hiro345g/dvc:novnc-202502
+FROM hiro345g/dvc:novnc-202507
 
 COPY ./script/install-mise.sh /usr/local/bin/install-mise.sh
 COPY ./script/update-mise.sh /usr/local/bin/update-mise.sh
