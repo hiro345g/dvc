@@ -130,6 +130,16 @@ desktop-lite によるデスクトップ環境では、次のソフトウェア�
 - [TightVNC](https://www.tightvnc.com/)
 - [noVNC](https://novnc.com/)
 
+### 白源フォントについて
+
+Nerd フォントによる表示に対応するため、白源フォントを含めてあります。
+
+- [プログラミングフォント 白源 (はくげん／HackGen)](https://github.com/yuru7/HackGen)
+
+ライセンスは下記に説明があります。
+
+- [HackGen License](https://github.com/yuru7/HackGen?tab=License-1-ov-file#readme)
+
 ### Dev Container について
 
 Dev Container については、開発が <https://github.com/devcontainers> でされていますので、そちらをご覧ください。
