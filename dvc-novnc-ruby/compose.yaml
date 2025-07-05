@@ -1,7 +1,7 @@
 name: dvc-novnc-ruby
 services:
   dvc-novnc-ruby:
-    image: hiro345g/dvc:novnc-ruby-202411
+    image: hiro345g/dvc:novnc-ruby-202507
     container_name: dvc-novnc-ruby
     hostname: dvc-novnc-ruby
     init: true

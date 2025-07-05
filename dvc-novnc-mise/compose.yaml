@@ -1,7 +1,7 @@
 name: dvc-novnc-mise
 services:
   dvc-novnc-mise:
-    image: hiro345g/dvc:novnc-mise-202411
+    image: hiro345g/dvc:novnc-mise-202507
     container_name: dvc-novnc-mise
     hostname: dvc-novnc-mise
     init: true

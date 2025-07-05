@@ -1,7 +1,7 @@
 name: dvc-novnc-gnr
 services:
   dvc-novnc-gnr:
-    image: hiro345g/dvc:novnc-gnr-202411
+    image: hiro345g/dvc:novnc-gnr-202507
     container_name: dvc-novnc-gnr
     hostname: dvc-novnc-gnr
     init: true

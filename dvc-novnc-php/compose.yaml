@@ -1,7 +1,7 @@
 name: dvc-novnc-php
 services:
   dvc-novnc-php:
-    image: hiro345g/dvc:novnc-php-202411
+    image: hiro345g/dvc:novnc-php-202507
     container_name: dvc-novnc-php
     hostname: dvc-novnc-php
     init: true
