@@ -4,25 +4,25 @@ Dev Container based on mcr.microsoft.com/devcontainers/typescript-node (desktop-
 
 ここでは、次のプログラミング言語に対応する開発コンテナー（Dev Container）用のイメージをビルドする方法を提供しています。
 
-| イメージ名:タグ       | os        | node | vnc   | mise | go   | jdk      | php | python | ruby |
-| --------------------- | --------- | ---- | ----- | ---- | ---- | -------- | --- | ------ | ---- |
-| dvc:base-202507       | debian 12 | 22   | -     | -    | -    | -        | -   | -      | -    |
-| dvc:novnc-202507      | debian 12 | 22   | 1.2.0 | -    | -    | -        | -   | -      | -    |
-| dvc:novnc-mise-202507 | debian 12 | 22   | 1.2.0 | i    | -    | -        | -   | -      | -    |
-| dvc:202507            | debian 12 | 22   | 1.2.0 | i    | -    | -        | -   | -      | -    |
-| dvc:go-202507         | debian 12 | 22   | 1.2.0 | i    | 1.24 | -        | -   | -      | -    |
-| dvc:jdk-202507        | debian 12 | 22   | 1.2.0 | i    | -    | 17,21,23 | -   | -      | -    |
-| dvc:php-202507        | debian 12 | 22   | 1.2.0 | i    | -    | -        | 8.2 | -      | -    |
-| dvc:python-202507     | debian 12 | 22   | 1.2.0 | i    | -    | -        | -   | 3.12   | -    |
-| dvc:ruby-202507       | debian 12 | 22   | 1.2.0 | i    | -    | -        | -   | -      | 3.2  |
-| dvc:gnr-202507        | debian 12 | 22   | 1.2.0 | i    | 1.24 | -        | -   | -      | 3.1  |
-| dvc:gnpr-202507       | debian 12 | 22   | 1.2.0 | i    | 1.24 | -        | -   | 3.12   | 3.1  |
+| イメージ名:タグ   | os        | node | vnc   | mise | go   | jdk | php | python | ruby |
+| ----------------- | --------- | ---- | ----- | ---- | ---- | --- | --- | ------ | ---- |
+| dvc:base-202507   | debian 12 | 22   | -     | -    | -    | -   | -   | -      | -    |
+| dvc:novnc-202507  | debian 12 | 22   | 1.2.0 | -    | -    | -   | -   | -      | -    |
+| dvc:202507        | debian 12 | 22   | 1.2.0 | i    | -    | -   | -   | -      | -    |
+| dvc:go-202507     | debian 12 | 22   | 1.2.0 | i    | 1.24 | -   | -   | -      | -    |
+| dvc:jdk-202507    | debian 12 | 22   | 1.2.0 | i    | -    | 17  | -   | -      | -    |
+| dvc:php-202507    | debian 12 | 22   | 1.2.0 | i    | -    | -   | 8.2 | -      | -    |
+| dvc:python-202507 | debian 12 | 22   | 1.2.0 | i    | -    | -   | -   | 3.12   | -    |
+| dvc:ruby-202507   | debian 12 | 22   | 1.2.0 | i    | -    | -   | -   | -      | 3.2  |
+| dvc:gnr-202507    | debian 12 | 22   | 1.2.0 | i    | 1.24 | -   | -   | -      | 3.1  |
+| dvc:gnpr-202507   | debian 12 | 22   | 1.2.0 | i    | 1.24 | -   | -   | 3.12   | 3.1  |
 
 表について補足説明
 
 - debian 12 のコードネームは bookworm
 - vnc は tighervnc
 - mise は jdx/mise の略、i でインストール済みでバージョンは 2025.7.0
+- jdk は 21, 24 もインストール済み
 
 ## 説明
 
@@ -229,6 +229,7 @@ dvc/
 ├── LICENSE ... ライセンス
 ├── README.md ... このファイル
 ├── build-image/script ... イメージをビルドするスクリプト
+├── dvc/ ... dvc 開発コンテナー用
 ├── dvc-base/ ... dvc:base 開発コンテナー用
 │   ├── .devcontainer/
 │   │   └── devcontainer.json ... 開発コンテナー用設定ファイル
