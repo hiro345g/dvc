@@ -127,7 +127,7 @@ mise のライセンスは <https://github.com/jdx/mise?tab=MIT-1-ov-file#readme
 desktop-lite によるデスクトップ環境では、次のソフトウェアが使えるようになっています。
 
 - [FluxBox](http://fluxbox.org/download/)
-- [TightVNC](https://www.tightvnc.com/)
+- [TigerVNC](https://tigervnc.org/)
 - [noVNC](https://novnc.com/)
 
 ### 白源フォントについて
