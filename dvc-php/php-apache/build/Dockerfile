@@ -4,7 +4,7 @@ ARG USER_NAME=www-data
 ARG USER_UID=1000
 ARG USER_GID=1000
 
-RUN apt-get update && apt-get install -y libonig-dev git bash-completion sudo \
+RUN apt-get update && apt-get install -y --no-install-recommends libonig-dev git bash-completion sudo \
     && pecl install xdebug-3.3.2 \
     && docker-php-ext-install pdo_mysql mysqli mbstring \
     && docker-php-ext-enable xdebug \
@@ -15,7 +15,10 @@ RUN apt-get update && apt-get install -y libonig-dev git bash-completion sudo \
     && echo "${USER_NAME} ALL=(root) NOPASSWD:ALL" > /etc/sudoers.d/${USER_NAME} \
     && chmod 440 /etc/sudoers.d/${USER_NAME} \ 
     && chown -R ${USER_NAME}:${USER_NAME} /var/www \
-    && chsh -s /bin/bash ${USER_NAME}
+    && chsh -s /bin/bash ${USER_NAME} \
+    && apt-get -y autoremove \
+    && apt-get -y clean  \
+    && rm -rf /var/cache/apt /var/lib/apt/lists
 
 COPY etc_apache2/conf-available/docker-php.conf /etc/apache2/conf-available/docker-php.conf
 COPY etc_apache2/sites-available/000-default.conf /etc/apache2/sites-available/000-default.conf

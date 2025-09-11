@@ -1,7 +1,7 @@
 name: dvc-ruby
 services:
   dvc-ruby:
-    image: hiro345g/dvc:ruby-202507
+    image: hiro345g/dvc:ruby-202509
     container_name: dvc-ruby
     hostname: dvc-ruby
     init: true

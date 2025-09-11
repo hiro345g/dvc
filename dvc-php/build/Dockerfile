@@ -1,11 +1,11 @@
-FROM hiro345g/dvc:202507
+FROM hiro345g/dvc:202509
 
 # mise は asdf-php プラグインを使用, Debian/Ubuntu で必要なパッケージ一覧は下記で確認可能
 # <https://github.com/asdf-community/asdf-php/blob/master/.github/workflows/workflow.yml#L30C14-L31C1>
 # asdf-php プラグインでは locate コマンドを使う。updatedb コマンドで locate 用の DB を更新しておく。
 RUN apt-get update \
-  && apt-get install -y locate \
-  && apt-get install -y \
+  && apt-get install -y --no-install-recommends locate \
+  && apt-get install -y --no-install-recommends \
     autoconf \
     bison \
     build-essential \

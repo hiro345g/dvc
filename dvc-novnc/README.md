@@ -1,6 +1,6 @@
 # dvc-novnc
 
-desktop-lite:1.2.5 では環境変数 VNC_PASSWORD へ `enable` などの文字列を指定しないと、VNC の認証が無効化されています。これを回避するためにカスタマイズをしています。
+desktop-lite:1.2.7 では環境変数 VNC_PASSWORD へ `enable` などの文字列を指定しないと、VNC の認証が無効化されています。これを回避するためにカスタマイズをしています。
 
 ちなみに VNC 認証用のパスワードは `dvc/README.md` に書いてあるとおり、dvc が提供するイメージでは `vscode` としてあります。
 

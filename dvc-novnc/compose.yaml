@@ -1,7 +1,7 @@
 name: dvc-novnc
 services:
   dvc-novnc:
-    image: hiro345g/dvc:novnc-202507
+    image: hiro345g/dvc:novnc-202509
     container_name: dvc-novnc
     hostname: dvc-novnc
     init: true
@@ -25,6 +25,7 @@ services:
       # VNC_PASSWORD: ${VNC_PASSWORD:-noPassword}
       # - .env へ VNC_PASSWORD を指定して、上の行の VNC_PASSWORD を有効にすることで、VNC のパスワード変更が可能
       # - 上にある VNC_PASSWORD の行を有効にしただけならパスワード認証が無効（ VNC_PASSWORD の値が noPassword だと認証が無効）
+      # - noVNS のパスワード長は最大8文字である点に注意
 
 volumes:
   workspace-data:

@@ -11,14 +11,6 @@ export VNC_RESOLUTION="${VNC_RESOLUTION:-1440x768x16}"
 export LANG="${LANG:-"en_US.UTF-8"}"
 export LANGUAGE="${LANGUAGE:-"en_US.UTF-8"}"
 
-if [ -n "${VNC_PASSWORD+x}" ] && [ ! "${VNC_PASSWORD}" = "noPassword" ]; then
-    if [ "$(id -u)" -ne 0 ]; then
-        sudo sh -c "echo ${VNC_PASSWORD} | vncpasswd -f > /usr/local/etc/vscode-dev-containers/vnc-passwd"
-    else
-        sh -c "echo ${VNC_PASSWORD} | vncpasswd -f > /usr/local/etc/vscode-dev-containers/vnc-passwd"
-    fi
-fi
-
 # Execute the command it not already running
 # shellcheck disable=SC2086
 startInBackgroundIfNotRunning()
@@ -71,6 +63,12 @@ log()
     echo -e "[$(date)] $@" | sudoIf tee -a $LOG > /dev/null
 }
 
+# Function to compare versions
+version_gt() {
+    # returns 0 if $1 > $2
+    [ "$(printf '%s\n' "$2" "$1" | sort -V | head -n1)" != "$1" ]
+}
+
 log "** SCRIPT START **"
 
 # Start dbus.
@@ -95,23 +93,51 @@ screen_depth="${VNC_RESOLUTION##*x}"
 # Check if VNC_PASSWORD is set and use the appropriate command
 common_options="tigervncserver ${DISPLAY} -geometry ${screen_geometry} -depth ${screen_depth} -rfbport 5901 -dpi ${VNC_DPI:-96} -localhost -desktop fluxbox -fg"
 
-if [ -n "${VNC_PASSWORD+x}" ] && [ ! "${VNC_PASSWORD}" = "noPassword" ]; then
-    if [ -e "/usr/local/etc/vscode-dev-containers/vnc-passwd" ]; then
-        startInBackgroundIfNotRunning "Xtigervnc" sudoUserIf "${common_options} -passwd /usr/local/etc/vscode-dev-containers/vnc-passwd"
-    else
-        startInBackgroundIfNotRunning "Xtigervnc" sudoUserIf "${common_options} -SecurityTypes None"
-    fi
+# Initialize the VNC security option.
+if [ -e "/usr/local/etc/vscode-dev-containers/vnc-passwd" ]; then
+    # If the password file exists, use it.
+    VNC_SECURITY_OPTION="-passwd /usr/local/etc/vscode-dev-containers/vnc-passwd"
 else
-    startInBackgroundIfNotRunning "Xtigervnc" sudoUserIf "${common_options} -SecurityTypes None"
+    VNC_SECURITY_OPTION="-SecurityTypes None"
 fi
+# Check if VNC_PASSWORD is set and equal to "noPassword".
+if [ -n "${VNC_PASSWORD+x}" ] && [ "${VNC_PASSWORD}" = "noPassword" ]; then
+    VNC_SECURITY_OPTION="-SecurityTypes None"
+else
+    # Check if VNC_PASSWORD is set
+    if [ -n "${VNC_PASSWORD+x}" ]; then
+        # Overwrite the vnc-passwd file
+        if [ "$(id -u)" -ne 0 ]; then
+            if sudo sh -c "echo ${VNC_PASSWORD} | vncpasswd -f > /usr/local/etc/vscode-dev-containers/vnc-passwd"; then
+                VNC_SECURITY_OPTION="-passwd /usr/local/etc/vscode-dev-containers/vnc-passwd"
+            fi
+        else
+            if sh -c "echo ${VNC_PASSWORD} | vncpasswd -f > /usr/local/etc/vscode-dev-containers/vnc-passwd"; then
+                VNC_SECURITY_OPTION="-passwd /usr/local/etc/vscode-dev-containers/vnc-passwd"
+            fi
+        fi
+    fi
+fi
+
+# Start VNC with the determined security option
+startInBackgroundIfNotRunning "Xtigervnc" sudoUserIf "${common_options} ${VNC_SECURITY_OPTION}"
 
 # Spin up noVNC if installed and not running.
 # shellcheck disable=SC2009,SC2022,SC2062
-if [ -d "/usr/local/novnc" ] && [ "$(ps -ef | grep /usr/local/novnc/noVNC*/utils/launch.sh | grep -v grep)" = "" ]; then
-    keepRunningInBackground "noVNC" sudoIf "/usr/local/novnc/noVNC*/utils/launch.sh --listen 6080 --vnc localhost:5901"
-    log "noVNC started."
+if [ -d "/usr/local/novnc" ]; then
+    if [ "$(ps -ef | grep /usr/local/novnc/noVNC*/utils/launch.sh | grep -v grep)" = "" ] && [ "$(ps -ef | grep /usr/local/novnc/noVNC*/utils/novnc_proxy | grep -v grep)" = "" ]; then
+        if version_gt "1.6.0" "1.2.0"; then
+            keepRunningInBackground "noVNC" sudoIf "/usr/local/novnc/noVNC*/utils/novnc_proxy --listen 6080 --vnc localhost:5901"
+            log "noVNC started with novnc_proxy."
+        else
+            keepRunningInBackground "noVNC" sudoIf "/usr/local/novnc/noVNC*/utils/launch.sh --listen 6080 --vnc localhost:5901"
+            log "noVNC started with launch.sh."
+        fi
+    else
+        log "noVNC is already running."
+    fi
 else
-    log "noVNC is already running or not installed."
+    log "noVNC is not installed."
 fi
 
 # Run whatever was passed in
