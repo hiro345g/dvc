@@ -21,7 +21,7 @@ Dev Container based on mcr.microsoft.com/devcontainers/typescript-node (desktop-
 
 - debian 12 のコードネームは bookworm
 - vnc は tigervnc
-- mise は jdx/mise の略、i でインストール済みでバージョンは 2025.9.7
+- mise は jdx/mise の略、i でインストール済みでバージョンは 2025.9.8
 - jdk は 21, 24 もインストール済み
 
 ## 説明
