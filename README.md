@@ -20,7 +20,7 @@ Dev Container based on mcr.microsoft.com/devcontainers/typescript-node (desktop-
 表について補足説明
 
 - debian 12 のコードネームは bookworm
-- vnc は tighervnc
+- vnc は tigervnc
 - mise は jdx/mise の略、i でインストール済みでバージョンは 2025.9.7
 - jdk は 21, 24 もインストール済み
 
@@ -127,7 +127,7 @@ mise のライセンスは <https://github.com/jdx/mise?tab=MIT-1-ov-file#readme
 desktop-lite によるデスクトップ環境では、次のソフトウェアが使えるようになっています。
 
 - [FluxBox](http://fluxbox.org/download/)
-- [TightVNC](https://www.tightvnc.com/)
+- [TigerVNC](https://tigervnc.org/)
 - [noVNC](https://novnc.com/)
 
 ### 白源フォントについて
