@@ -1,7 +1,7 @@
 name: dvc-jdk
 services:
   dvc-jdk:
-    image: hiro345g/dvc:jdk-202509
+    image: hiro345g/dvc:jdk-202601
     container_name: dvc-jdk
     hostname: dvc-jdk
     init: true

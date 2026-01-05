@@ -6,22 +6,22 @@ Dev Container based on mcr.microsoft.com/devcontainers/typescript-node (desktop-
 
 | イメージ名:タグ   | os        | node | vnc   | mise | go   | jdk | php | python | ruby |
 | ----------------- | --------- | ---- | ----- | ---- | ---- | --- | --- | ------ | ---- |
-| dvc:base-202509   | debian 12 | 22   | -     | -    | -    | -   | -   | -      | -    |
-| dvc:novnc-202509  | debian 12 | 22   | 1.2.0 | -    | -    | -   | -   | -      | -    |
-| dvc:202509        | debian 12 | 22   | 1.2.0 | i    | -    | -   | -   | -      | -    |
-| dvc:go-202509     | debian 12 | 22   | 1.2.0 | i    | 1.24 | -   | -   | -      | -    |
-| dvc:jdk-202509    | debian 12 | 22   | 1.2.0 | i    | -    | 17  | -   | -      | -    |
-| dvc:php-202509    | debian 12 | 22   | 1.2.0 | i    | -    | -   | 8.2 | -      | -    |
-| dvc:python-202509 | debian 12 | 22   | 1.2.0 | i    | -    | -   | -   | 3.12   | -    |
-| dvc:ruby-202509   | debian 12 | 22   | 1.2.0 | i    | -    | -   | -   | -      | 3.4  |
-| dvc:gnr-202509    | debian 12 | 22   | 1.2.0 | i    | 1.24 | -   | -   | -      | 3.4  |
-| dvc:gnpr-202509   | debian 12 | 22   | 1.2.0 | i    | 1.24 | -   | -   | 3.12   | 3.4  |
+| dvc:base-202601   | debian 13 | 24   | -     | -    | -    | -   | -   | -      | -    |
+| dvc:novnc-202601  | debian 13 | 24   | 1.2.0 | -    | -    | -   | -   | -      | -    |
+| dvc:202601        | debian 13 | 24   | 1.2.0 | i    | -    | -   | -   | -      | -    |
+| dvc:go-202601     | debian 13 | 24   | 1.2.0 | i    | 1.24 | -   | -   | -      | -    |
+| dvc:jdk-202601    | debian 13 | 24   | 1.2.0 | i    | -    | 17  | -   | -      | -    |
+| dvc:php-202601    | debian 13 | 24   | 1.2.0 | i    | -    | -   | 8.2 | -      | -    |
+| dvc:python-202601 | debian 13 | 24   | 1.2.0 | i    | -    | -   | -   | 3.12   | -    |
+| dvc:ruby-202601   | debian 13 | 24   | 1.2.0 | i    | -    | -   | -   | -      | 3.4  |
+| dvc:gnr-202601    | debian 13 | 24   | 1.2.0 | i    | 1.24 | -   | -   | -      | 3.4  |
+| dvc:gnpr-202601   | debian 13 | 24   | 1.2.0 | i    | 1.24 | -   | -   | 3.12   | 3.4  |
 
 表について補足説明
 
-- debian 12 のコードネームは bookworm
+- debian 13 のコードネームは trixie
 - vnc は tigervnc
-- mise は jdx/mise の略、i でインストール済みでバージョンは 2025.9.8
+- mise は jdx/mise の略、i でインストール済みでバージョンは 2025.12.13
 - jdk は 21, 24 もインストール済み
 
 ## 説明
@@ -63,9 +63,9 @@ Docker イメージは Docker Hub の <https://hub.docker.com/r/hiro345g/dvc> �
 
 なお、このリポジトリで公開している、ローカルマシンでビルドする場合に使うコード（Dockerfile や devcontainer.json）のライセンスは MIT ライセンスとなっています。しかし、ローカルマシンでビルドしたイメージや <https://hub.docker.com/r/hiro345g/dvc> で公開されているイメージを使う場合は、MIT ライセンスではなく、イメージに含まれるソフトウェアのライセンスに同意した上で使う必要があります。そのため、イメージに含まれるソフトウェアについて、ここで説明します。
 
-### mcr.microsoft.com/devcontainers/typescript-node:22-bookworm イメージ
+### mcr.microsoft.com/devcontainers/typescript-node:24-trixie イメージ
 
-dvc では、<https://github.com/devcontainers/images/tree/main/src/typescript-node> で公開されている mcr.microsoft.com/devcontainers/typescript-node:22-bookworm の Docker イメージをベースとしています。これは [Debian](https://www.debian.org/) をベースとしているので、基本的なライセンスは <https://www.debian.org/social_contract#guidelines> に従います。
+dvc では、<https://github.com/devcontainers/images/tree/main/src/typescript-node> で公開されている mcr.microsoft.com/devcontainers/typescript-node:24-trixie の Docker イメージをベースとしています。これは [Debian](https://www.debian.org/) をベースとしているので、基本的なライセンスは <https://www.debian.org/social_contract#guidelines> に従います。
 
 ### <https://github.com/devcontainers/features/> フィーチャー
 
@@ -157,7 +157,7 @@ dvc を動作をさせるには、Docker、Docker Compose、Visual Studio Code (
 - [Docker Engine](https://docs.docker.com/engine/)
 - [Docker Compose](https://docs.docker.com/compose/)
 
-これらは [Docker Desktop](https://docs.docker.com/desktop/) をインストールしてあれば使えます。Linux では Docker Desktop をインストールしなくても Docker Engine と Docker Compose だけをインストールして使えます。例えば、Ubuntu を使っているなら [Install Docker Engine on Ubuntu](https://docs.docker.com/engine/install/ubuntu/) を参照してインストールしておいてください。
+これらは [Docker Desktop](https://docs.docker.com/desktop/) をインストールしてあれば使えます。WSL が使える環境、もしくは Linux 環境であれば、Docker Desktop をインストールしなくても Docker Engine と Docker Compose だけをインストールして使えます。例えば、Ubuntu を使っているなら [Install Docker Engine on Ubuntu](https://docs.docker.com/engine/install/ubuntu/) を参照してインストールしておいてください。
 
 ### Visual Studio Code
 
@@ -166,7 +166,7 @@ dvc を動作をさせるには、Docker、Docker Compose、Visual Studio Code (
 - [Docker DX (Developer Experience) 拡張機能](https://marketplace.visualstudio.com/items?itemName=docker.docker)
 - [Dev Containers 拡張機能](https://marketplace.visualstudio.com/items?itemName=ms-vscode-remote.remote-containers)
 
-VS Code の拡張機能である Docker と Dev Containers を VS Code へインストールしておく必要があります。
+VS Code の拡張機能である Container Tools、Docker DX、Dev Containers を VS Code へインストールしておく必要があります。
 
 ### 動作確認済みの環境
 
@@ -174,50 +174,51 @@ VS Code の拡張機能である Docker と Dev Containers を VS Code へイン
 
 ```console
 $ cat /etc/os-release
-PRETTY_NAME="Ubuntu 22.04.5 LTS"
+PRETTY_NAME="Ubuntu 24.04.3 LTS"
 NAME="Ubuntu"
-VERSION_ID="22.04"
-VERSION="22.04.5 LTS (Jammy Jellyfish)"
-VERSION_CODENAME=jammy
+VERSION_ID="24.04"
+VERSION="24.04.3 LTS (Noble Numbat)"
+VERSION_CODENAME=noble
 ID=ubuntu
 ID_LIKE=debian
 HOME_URL="https://www.ubuntu.com/"
 SUPPORT_URL="https://help.ubuntu.com/"
 BUG_REPORT_URL="https://bugs.launchpad.net/ubuntu/"
 PRIVACY_POLICY_URL="https://www.ubuntu.com/legal/terms-and-policies/privacy-policy"
-UBUNTU_CODENAME=jammy
+UBUNTU_CODENAME=noble
+LOGO=ubuntu-logo
 
 $ docker version
 Client: Docker Engine - Community
- Version:           28.3.1
- API version:       1.51
- Go version:        go1.24.4
- Git commit:        38b7060
- Built:             Wed Jul  2 20:56:22 2025
+ Version:           29.1.3
+ API version:       1.52
+ Go version:        go1.25.5
+ Git commit:        f52814d
+ Built:             Fri Dec 12 14:49:32 2025
  OS/Arch:           linux/amd64
  Context:           default
 
 Server: Docker Engine - Community
  Engine:
-  Version:          28.3.1
-  API version:      1.51 (minimum version 1.24)
-  Go version:       go1.24.4
-  Git commit:       5beb93d
-  Built:            Wed Jul  2 20:56:22 2025
+  Version:          29.1.3
+  API version:      1.52 (minimum version 1.44)
+  Go version:       go1.25.5
+  Git commit:       fbf3ed2
+  Built:            Fri Dec 12 14:49:32 2025
   OS/Arch:          linux/amd64
   Experimental:     false
  containerd:
-  Version:          1.7.27
-  GitCommit:        05044ec0a9a75232cad458027ca83437aae3f4da
+  Version:          v2.2.1
+  GitCommit:        dea7da592f5d1d2b7755e3a161be07f43fad8f75
  runc:
-  Version:          1.2.5
-  GitCommit:        v1.2.5-0-g59923ef
+  Version:          1.3.4
+  GitCommit:        v1.3.4-0-gd6d73eb8
  docker-init:
   Version:          0.19.0
   GitCommit:        de40ad0
 
 $ docker compose version
-Docker Compose version v2.29.2-desktop.2
+Docker Compose version v2.40.3-desktop.1
 ```
 
 ## ファイルの構成
@@ -272,7 +273,7 @@ VNC (Virtual Network Computing) を使ってデスクトップ環境へアクセ
 
 別のパスワードにしたい場合は、コンテナ用の環境変数 `VNC_PASSWORD` を用意し、そこへパスワード文字列を指定すること。なお、認証を無効化するには、`VNC_PASSWORD` の値へ `noPassword` という文字列を指定すること。
 
-なお、VNC のパスワードは最大長8文字なので、それ以上の値を指定しても先頭の8文字が一致すると認証されてしまう点に注意すること。
+ちなみに、VNC のパスワードは最大長8文字なので、それ以上の値を指定しても先頭の8文字が一致すると認証されてしまう点に注意すること。
 
 ## 使い方
 

@@ -1,5 +1,5 @@
 #! /bin/sh
-IMAGE_NAME=dvc:base-202509
+IMAGE_NAME=dvc:base-202601
 SCRIPT_DIR=$(dirname "$0")
 BUILD_DEVCON_DIR=$(cd "${SCRIPT_DIR}" || exit 1;pwd)
 PATH=${PATH}:${NPM_CONFIG_PREFIX}/bin

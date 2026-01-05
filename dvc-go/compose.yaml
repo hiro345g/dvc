@@ -1,7 +1,7 @@
 name: dvc-go
 services:
   dvc-go:
-    image: hiro345g/dvc:go-202509
+    image: hiro345g/dvc:go-202601
     container_name: dvc-go
     hostname: dvc-go
     init: true

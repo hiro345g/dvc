@@ -2,4 +2,4 @@ name: dvc-novnc
 services:
   dvc-novnc:
     build: .
-    image: dvc:novnc-202509
+    image: dvc:novnc-202601

@@ -1,5 +1,5 @@
 # https://github.com/devcontainers/images/tree/main/src/typescript-node
-FROM mcr.microsoft.com/devcontainers/typescript-node:22-bookworm
+FROM mcr.microsoft.com/devcontainers/typescript-node:24-trixie
 
 COPY ./node.dot.bashrc /home/node/.bashrc
 COPY ./node.dot.npmrc /home/node/.npmrc

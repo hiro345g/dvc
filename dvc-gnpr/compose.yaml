@@ -1,7 +1,7 @@
 name: dvc-gnpr
 services:
   dvc-gnpr:
-    image: hiro345g/dvc:gnpr-202509
+    image: hiro345g/dvc:gnpr-202601
     container_name: dvc-gnpr
     hostname: dvc-gnpr
     init: true
