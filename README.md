@@ -10,7 +10,7 @@ Dev Container based on mcr.microsoft.com/devcontainers/typescript-node (desktop-
 | dvc:novnc-202601  | debian 13 | 24   | 1.2.0 | -    | -    | -   | -   | -      | -    |
 | dvc:202601        | debian 13 | 24   | 1.2.0 | i    | -    | -   | -   | -      | -    |
 | dvc:go-202601     | debian 13 | 24   | 1.2.0 | i    | 1.24 | -   | -   | -      | -    |
-| dvc:jdk-202601    | debian 13 | 24   | 1.2.0 | i    | -    | 17  | -   | -      | -    |
+| dvc:jdk-202601    | debian 13 | 24   | 1.2.0 | i    | -    | 21  | -   | -      | -    |
 | dvc:php-202601    | debian 13 | 24   | 1.2.0 | i    | -    | -   | 8.2 | -      | -    |
 | dvc:python-202601 | debian 13 | 24   | 1.2.0 | i    | -    | -   | -   | 3.12   | -    |
 | dvc:ruby-202601   | debian 13 | 24   | 1.2.0 | i    | -    | -   | -   | -      | 3.4  |
@@ -22,7 +22,7 @@ Dev Container based on mcr.microsoft.com/devcontainers/typescript-node (desktop-
 - debian 13 のコードネームは trixie
 - vnc は tigervnc
 - mise は jdx/mise の略、i でインストール済みでバージョンは 2025.12.13
-- jdk は 21, 24 もインストール済み
+- jdk は 17, 24 もインストール済み
 
 ## 説明
 
