@@ -3,10 +3,11 @@
     "dockerFile": "./Dockerfile",
     // https://github.com/devcontainers/features
     "features": {
-        "ghcr.io/devcontainers/features/common-utils:2.5.4": {},
-        "ghcr.io/devcontainers/features/docker-outside-of-docker:1.6.4": {
+        "ghcr.io/devcontainers/features/common-utils:2.5.5": {},
+        "ghcr.io/devcontainers/features/docker-outside-of-docker:1.6.5": {
             "version": "latest",
-            "dockerDashComposeVersion": "v2"
+            "dockerDashComposeVersion": "v2",
+            "moby": false
         },
         "ghcr.io/devcontainers/features/git:1.3.4": {
             "version": "latest"

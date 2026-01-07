@@ -1,1 +1,1 @@
-FROM hiro345g/dvc:go-202509
+FROM hiro345g/dvc:go-202601

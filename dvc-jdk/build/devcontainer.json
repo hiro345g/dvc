@@ -4,7 +4,7 @@
   "features": {
     "ghcr.io/devcontainers/features/java:1.6.3": {
         "version": "21",
-        "additionalVersions": "24.0.1-tem,17.0.15-tem",
+        "additionalVersions": "24.0.2-tem,17.0.17-tem",
         "jdkDistro": "tem",
         "installGradle": true,
         "gradleVersion": "latest",
