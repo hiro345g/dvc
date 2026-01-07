@@ -283,7 +283,7 @@ VNC (Virtual Network Computing) を使ってデスクトップ環境へアクセ
 
 ### 使う準備
 
-まず、`dvc-gnpr` をコピーします。ここでは `/workspace` へコピーするとします。
+まず、`dvc-gnpr` をコピーします。ここではユーザーが書き込みできる `/workspace` がすでに用意されているとして、そこへコピーするとします。
 
 ```bash
 cp -r dvc-gnpr /workspace/
@@ -430,7 +430,7 @@ IBus のアイコンで Restart をすると IBus のメニューへも反映さ
 
 ```console
 docker compose -p dvc-gnpr stop dvc-gnpr
-docker commit dvc-gnpr dvc:gnpr-202601-mozc
+docker container commit dvc-gnpr dvc:gnpr-202601-mozc
 ```
 
 dvc-gnpr コンテナーは削除します。
@@ -485,10 +485,10 @@ prefix=/home/node/workspace/.npm-global
 
 ### ビルドの準備
 
-最初にビルド済みの hiro345g/dvc:gnpr-202601 をダウンロードしておきます。次のように `docker pull` コマンドを実行します。
+最初にビルド済みの `hiro345g/dvc:gnpr-202601` イメージを `docker image pull` しておきます。次のようにコマンドを実行します。
 
 ```console
-docker pull hiro345g/dvc:gnpr-202601
+docker image pull hiro345g/dvc:gnpr-202601
 ```
 
 基本は、これをカスタマイズすることになります。
@@ -530,8 +530,7 @@ services:
 `build.sh` スクリプトを利用するには、`npm` コマンド、`docker` コマンドが実行できる環境が必要です。内部的に `@devcontainers/cli` を `npm exec` コマンドで実行しています。
 
 ```console
-cd ${REPO_DIR}
-sh ./build/build.sh
+sh /workspace/dvc-gnpr/build/build.sh
 ```
 
 ビルドが成功したら、使用する Docker イメージを作成した `dvc:gnpr-202601` へ変更する必要があるので、`/workspace/dvc-gnpr/compose.yaml` を次のように編集します。
@@ -562,15 +561,15 @@ services:
 
 ### `hiro345g/dvc:gnpr-202601` へ戻す方法
 
-`hiro345g/dvc:gnpr-202601` へ戻すには、`${REPO_DIR}/compose.yaml` を次のように編集します。
+`hiro345g/dvc:gnpr-202601` へ戻すには、`/workspace/dvc-gnpr/compose.yaml` を次のように編集します。
 
 ```yaml
-name: devcon-gnpr-202312
+name: dvc-gnpr
 services:
   dvc:gnpr-202601:
     image: hiro345g/dvc:gnpr-202601
     #image: dvc:gnpr-202601
-    container_name: devcon-gnpr-202312
+    container_name: dvc-gnpr
     （略）
 ```
 
