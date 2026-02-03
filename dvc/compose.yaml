@@ -1,7 +1,7 @@
 name: dvc
 services:
   dvc:
-    image: hiro345g/dvc:202601
+    image: hiro345g/dvc:202602
     container_name: dvc
     hostname: dvc
     init: true

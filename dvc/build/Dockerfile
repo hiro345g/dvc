@@ -1,1 +1,1 @@
-FROM hiro345g/dvc:novnc-mise-202601
+FROM hiro345g/dvc:novnc-mise-202602

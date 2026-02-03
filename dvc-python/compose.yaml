@@ -1,7 +1,7 @@
 name: dvc-python
 services:
   dvc-python:
-    image: hiro345g/dvc:python-202601
+    image: hiro345g/dvc:python-202602
     container_name: dvc-python
     hostname: dvc-python
     init: true

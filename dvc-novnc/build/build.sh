@@ -1,5 +1,5 @@
 #! /bin/sh
-IMAGE_NAME=dvc:novnc-202601
+IMAGE_NAME=dvc:novnc-202602
 SCRIPT_DIR=$(dirname "$0")
 BUILD_DEVCON_DIR=$(cd "${SCRIPT_DIR}" || exit 1;pwd)
 
