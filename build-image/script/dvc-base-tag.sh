@@ -1,6 +1,7 @@
 #!/bin/sh
 docker tag dvc:base-202602 hiro345g/dvc:base-202602
 docker tag dvc:novnc-202602 hiro345g/dvc:novnc-202602
+docker tag dvc:novnc-mise-202602 hiro345g/dvc:novnc-mise-202602
 docker tag dvc:202602 hiro345g/dvc:202602
 docker tag dvc:go-202602 hiro345g/dvc:go-202602
 docker tag dvc:jdk-202602 hiro345g/dvc:jdk-202602
