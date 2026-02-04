@@ -3,7 +3,8 @@
   "dockerFile": "./Dockerfile",
   "features": {
     "ghcr.io/devcontainers/features/ruby:1.3.2": {
-      "version":"4.0"
+      // EOL: 2028-03-31
+      "version":"3.4"
     }
   }
 }

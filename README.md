@@ -13,7 +13,7 @@ Dev Container based on mcr.microsoft.com/devcontainers/typescript-node (desktop-
 | dvc:jdk-202602    | debian 13 | 24   | 1.2.0 | i    | -    | 21  | -   | -      | -    |
 | dvc:php-202602    | debian 13 | 24   | 1.2.0 | i    | -    | -   | 8.2 | -      | -    |
 | dvc:python-202602 | debian 13 | 24   | 1.2.0 | i    | -    | -   | -   | 3.14   | -    |
-| dvc:ruby-202602   | debian 13 | 24   | 1.2.0 | i    | -    | -   | -   | -      | 4.0  |
+| dvc:ruby-202602   | debian 13 | 24   | 1.2.0 | i    | -    | -   | -   | -      | 3.4  |
 | dvc:gnr-202602    | debian 13 | 24   | 1.2.0 | i    | 1.25 | -   | -   | -      | 3.4  |
 | dvc:gnpr-202602   | debian 13 | 24   | 1.2.0 | i    | 1.25 | -   | -   | 3.12   | 3.4  |
 
