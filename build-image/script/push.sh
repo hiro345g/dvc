@@ -1,8 +1,9 @@
 #!/bin/sh
-VERSION=202601
+VERSION=202602
 USER_NAME=hiro345g
 docker push ${USER_NAME}/dvc:base-${VERSION}
 docker push ${USER_NAME}/dvc:novnc-${VERSION}
+docker push ${USER_NAME}/dvc:novnc-mise-${VERSION}
 docker push ${USER_NAME}/dvc:${VERSION}
 docker push ${USER_NAME}/dvc:go-${VERSION}
 docker push ${USER_NAME}/dvc:jdk-${VERSION}

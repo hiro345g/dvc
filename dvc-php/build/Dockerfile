@@ -1,4 +1,4 @@
-FROM hiro345g/dvc:202601
+FROM hiro345g/dvc:202602
 
 # mise は asdf-php プラグインを使用, Debian/Ubuntu で必要なパッケージ一覧は下記で確認可能
 # <https://github.com/asdf-community/asdf-php/blob/master/.github/workflows/workflow.yml#L30C14-L31C1>

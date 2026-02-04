@@ -3,6 +3,7 @@
   "dockerFile": "./Dockerfile",
   "features": {
     "ghcr.io/devcontainers/features/python:1.8.0": {
+      // EOL: 2028-08-31
       "version":"3.12"
     }
   }

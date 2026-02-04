@@ -1,7 +1,7 @@
 name: dvc-php
 services:
   dvc-php:
-    image: hiro345g/dvc:php-202601
+    image: hiro345g/dvc:php-202602
     container_name: dvc-php
     hostname: dvc-php
     init: true
