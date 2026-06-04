@@ -41,10 +41,10 @@ Tool  Version    Config Source              Requested
 php   system     ~/.config/mise/config.toml system   
 php   8.3.13
 node ➜ ~/workspace/php $ php -v
-PHP 8.2.25 (cli) (built: Nov  6 2024 12:16:44) (NTS)
+PHP 8.2.31 (cli) (built: Jun  1 2026 12:15:16) (NTS)
 Copyright (c) The PHP Group
-Zend Engine v4.2.25, Copyright (c) Zend Technologies
-    with Xdebug v3.3.2, Copyright (c) 2002-2024, by Derick Rethans
+Zend Engine v4.2.31, Copyright (c) Zend Technologies
+    with Xdebug v3.5.1, Copyright (c) 2002-2026, by Derick Rethans
 ```
 
 php 8.3 を使うプロジェクト。
@@ -54,7 +54,7 @@ mkdir ~/workspace/php83 && cd ~/workspace/php83
 mise use php@8.3.13
 ```
 
-これで `php83/.mise.toml` が作成されます。
+これで `php83/mise.toml` が作成されます。
 
 ```toml
 [tools]

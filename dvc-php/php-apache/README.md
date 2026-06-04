@@ -8,10 +8,12 @@ php-apache 用のイメージをビルドするには次のコマンドを実行
 sh build/build.sh
 ```
 
-シェルが使えない環境では `docker compose build` コマンドを使ってビルドします。
+シェルが使えない環境では `docker compose build` コマンドを使ってビルドします。ビルドが終わったら元のフォルダに戻ります。
 
 ```console
-docker compose -f build/compose.yaml build
+cd build
+docker compose build
+cd ..
 ```
 
 カスタマイズする場合は、build にある Dockerfile や関連ファイルを修正して使います。
@@ -37,5 +39,5 @@ sh script/down.sh
 シェルが使えない環境では `docker compose down` コマンドを使います。
 
 ```console
-docker compose down
+docker compose -p php-apache down
 ```

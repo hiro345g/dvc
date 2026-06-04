@@ -141,10 +141,10 @@ else
 fi
 
 # Run whatever was passed in
-if [ -n "" ]; then
+if [ -n "$1" ]; then
     # shellcheck disable=SC2145
     log "Executing \"$@\"."
-    exec ""
+    exec "$@"
 else
     log "No command provided to execute."
 fi

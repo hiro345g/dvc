@@ -1,1 +1,1 @@
-FROM hiro345g/dvc:gnr-202602
+FROM hiro345g/dvc:gnr-202606

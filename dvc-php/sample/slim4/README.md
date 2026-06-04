@@ -13,8 +13,8 @@ dvc-php 開発コンテナーの使用例として参考にしてください。
 ```console
 mkdir /home/node/workspace/html/slim4
 cd /home/node/workspace/html/slim4
-mise install php 8.2.25
-mise use php@8.2.25
+mise install php 8.2.31
+mise use php@8.2.31
 composer require slim/slim:"4.*"
 composer require slim/psr7
 ```

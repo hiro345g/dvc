@@ -1,5 +1,6 @@
 # https://github.com/devcontainers/images/tree/main/src/typescript-node
 FROM mcr.microsoft.com/devcontainers/typescript-node:24-trixie
+# node v24.15.0 at 2026-06-01
 
 COPY ./node.dot.bashrc /home/node/.bashrc
 COPY ./node.dot.npmrc /home/node/.npmrc
