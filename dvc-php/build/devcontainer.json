@@ -3,6 +3,7 @@
   "dockerFile": "./Dockerfile",
   "features": {
     "ghcr.io/devcontainers/features/php:1.1.4": {
+      // 8.2.31 at 2026-06-01
       // Active Support Until 2024-12-31
       // Security Support Until 2026-12-31
       // prefix=/usr/local/php/current

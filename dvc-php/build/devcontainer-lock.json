@@ -1,0 +1,9 @@
+{
+  "features": {
+    "ghcr.io/devcontainers/features/php:1.1.4": {
+      "version": "1.1.4",
+      "resolved": "ghcr.io/devcontainers/features/php@sha256:33409d4db3373dcd159dd7e9c1a8bcf2a508263fa53abf9c209873d8681f7f1c",
+      "integrity": "sha256:33409d4db3373dcd159dd7e9c1a8bcf2a508263fa53abf9c209873d8681f7f1c"
+    }
+  }
+}

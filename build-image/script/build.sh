@@ -1,7 +1,7 @@
 #!/bin/sh
 SCRIPT_DIR=$(dirname "$0")
 REPO_DIR=$(cd "${SCRIPT_DIR}/../.." || exit 1; pwd)
-VERSION=202602
+VERSION=202606
 
 for t in gnpr gnr ruby python php jdk go; do
     tag="dvc:${t}-${VERSION}"
