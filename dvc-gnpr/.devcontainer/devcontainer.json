@@ -65,8 +65,6 @@
         "mhutchie.git-graph",
         "ms-azuretools.vscode-containers",
         "docker.docker",
-        "christian-kohler.npm-intellisense",
-        "vscode-icons-team.vscode-icons",
         "ms-vscode-remote.remote-containers",
         "davidanson.vscode-markdownlint",
         "ms-vscode-remote.vscode-remote-extensionpack"

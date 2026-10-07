@@ -1,7 +1,7 @@
 name: php-apache
 services:
   php-apache:
-    image: dvc:php8.2-apache2.4
+    image: dvc:php8.3-apache2.4
     container_name: php-apache
     hostname: php-apache
     tty: true
@@ -26,7 +26,7 @@ services:
       # - type: bind
       #   source: ${LOCAL_WORKSPACE_FOLDER:-..}/php-apache/usr_local_etc_php/php.ini
       #   target: /usr/local/etc/php/php.ini
-      # dvc:php8.2-apache2.4 イメージで使う PHP や Apache2 の設定を変更したい場合は、必要なファイルを用意してから上記のバインドマウントを有効化
+      # dvc:php8.3-apache2.4 イメージで使う PHP や Apache2 の設定を変更したい場合は、必要なファイルを用意してから上記のバインドマウントを有効化
 
   php-apache-mysql:
     image: mysql:8.0.39-bookworm

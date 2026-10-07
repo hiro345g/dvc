@@ -1,4 +1,4 @@
-FROM php:8.2-apache
+FROM php:8.3-apache
 
 ARG USER_NAME=www-data
 ARG USER_UID=1000

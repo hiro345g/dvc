@@ -6,23 +6,23 @@ Dev Container based on mcr.microsoft.com/devcontainers/typescript-node (desktop-
 
 | イメージ名:タグ   | os        | node | vnc    | mise | go   | jdk | php | python | ruby |
 | ----------------- | --------- | ---- | ------ | ---- | ---- | --- | --- | ------ | ---- |
-| dvc:base-202606   | debian 13 | 24   | -      | -    | -    | -   | -   | -      | -    |
-| dvc:novnc-202606  | debian 13 | 24   | 1.15.0 | -    | -    | -   | -   | -      | -    |
-| dvc:202606        | debian 13 | 24   | 1.15.0 | i    | -    | -   | -   | -      | -    |
-| dvc:go-202606     | debian 13 | 24   | 1.15.0 | i    | 1.25 | -   | -   | -      | -    |
-| dvc:jdk-202606    | debian 13 | 24   | 1.15.0 | i    | -    | 25  | -   | -      | -    |
-| dvc:php-202606    | debian 13 | 24   | 1.15.0 | i    | -    | -   | 8.2 | -      | -    |
-| dvc:python-202606 | debian 13 | 24   | 1.15.0 | i    | -    | -   | -   | 3.14   | -    |
-| dvc:ruby-202606   | debian 13 | 24   | 1.15.0 | i    | -    | -   | -   | -      | 3.4  |
-| dvc:gnr-202606    | debian 13 | 24   | 1.15.0 | i    | 1.25 | -   | -   | -      | 3.4  |
-| dvc:gnpr-202606   | debian 13 | 24   | 1.15.0 | i    | 1.25 | -   | -   | 3.14   | 3.4  |
+| dvc:base-202610   | debian 13 | 24   | -      | -    | -    | -   | -   | -      | -    |
+| dvc:novnc-202610  | debian 13 | 24   | 1.15.0 | -    | -    | -   | -   | -      | -    |
+| dvc:202610        | debian 13 | 24   | 1.15.0 | i    | -    | -   | -   | -      | -    |
+| dvc:go-202610     | debian 13 | 24   | 1.15.0 | i    | 1.26 | -   | -   | -      | -    |
+| dvc:jdk-202610    | debian 13 | 24   | 1.15.0 | i    | -    | 25  | -   | -      | -    |
+| dvc:php-202610    | debian 13 | 24   | 1.15.0 | i    | -    | -   | 8.3 | -      | -    |
+| dvc:python-202610 | debian 13 | 24   | 1.15.0 | i    | -    | -   | -   | 3.14   | -    |
+| dvc:ruby-202610   | debian 13 | 24   | 1.15.0 | i    | -    | -   | -   | -      | 3.4  |
+| dvc:gnr-202610    | debian 13 | 24   | 1.15.0 | i    | 1.26 | -   | -   | -      | 3.4  |
+| dvc:gnpr-202610   | debian 13 | 24   | 1.15.0 | i    | 1.26 | -   | -   | 3.14   | 3.4  |
 
 表について補足説明
 
 - debian 13 のコードネームは trixie
 - vnc は tigervnc
 - noVNC は 1.6.0
-- mise は jdx/mise の略、i でインストール済みでバージョンは 2026.6.0
+- mise は jdx/mise の略、i でインストール済みでバージョンは 2026.10.3
 - jdk は 17, 21 もインストール済み
 
 ## 説明
@@ -278,9 +278,9 @@ VNC (Virtual Network Computing) を使ってデスクトップ環境へアクセ
 
 ## 使い方
 
-ここでは使い方について説明します。各イメージについて、サンプルが用意してあるので、それを参考にしてください。たとえば、`hiro345g/dvc:gnpr-202606` のイメージを使いたい場合は `dvc-gnpr` を参照します。
+ここでは使い方について説明します。各イメージについて、サンプルが用意してあるので、それを参考にしてください。たとえば、`hiro345g/dvc:gnpr-202610` のイメージを使いたい場合は `dvc-gnpr` を参照します。
 
-例として、`hiro345g/dvc:gnpr-202606` のイメージを使う方法について説明します。
+例として、`hiro345g/dvc:gnpr-202610` のイメージを使う方法について説明します。
 
 ### 使う準備
 
@@ -306,7 +306,7 @@ cd /workspace/dvc-gnpr
 
 `dvc-gnpr/compose.yaml` では、開発コンテナーと Docker ホストとでファイルを手軽に参照したり転送したりできるように、`dvc-gnpr:/share` をバインドマウントするようにしていて、Docker ホスト側で使用するディレクトリーを `SHARE_DIR` で指定します。Docker ホスト側に存在するものを指定してください。
 
-`hiro345g/dvc:gnpr-202606` のイメージを使う `dvc-gnpr/compose.yaml` のサンプルについては、コピーをしないで利用する想定で、あらかじめ `dvc-gnpr` と同じ階層にある `workspace_share` ディレクトリーを使う設定となっています。`/workspace/dvc-gnpr` へコピーすると、そのままではバインドマウントが失敗する状態となります。
+`hiro345g/dvc:gnpr-202610` のイメージを使う `dvc-gnpr/compose.yaml` のサンプルについては、コピーをしないで利用する想定で、あらかじめ `dvc-gnpr` と同じ階層にある `workspace_share` ディレクトリーを使う設定となっています。`/workspace/dvc-gnpr` へコピーすると、そのままではバインドマウントが失敗する状態となります。
 
 これについて、`compose.yaml` ファイルを変更しなくても対応できるように、環境変数 `SHARE_DIR` を用意してあります。次の例では `/workspace/share` ディレクトリーを作成して、それを使うようにしています。
 
@@ -320,7 +320,7 @@ echo 'SHARE_DIR=/workspace/share' > /workspace/dvc-gnpr/.env
 
 VS Code を起動し、F1 キーを入力してコマンドパレットを表示してから、「開発コンテナー: コンテナーでフォルダを開く...（Dev Containers: Open Folder in Container...）」をクリックします。フォルダーを選択する画面になるので `/workspace/dvc-gnpr` を指定して開きます。
 
-すると `/workspace/dvc-gnpr/.devcontainer/devcontainer.json` の指定にしたがって、dvc:gnpr-202606 イメージのコンテナーが開発コンテナー（Dev Container）として起動します。このとき、拡張機能なども追加されます。それから、この開発コンテナー用の VS Code の画面となります。
+すると `/workspace/dvc-gnpr/.devcontainer/devcontainer.json` の指定にしたがって、dvc:gnpr-202610 イメージのコンテナーが開発コンテナー（Dev Container）として起動します。このとき、拡張機能なども追加されます。それから、この開発コンテナー用の VS Code の画面となります。
 
 サンプルでは、開発コンテナーから Docker ホストのファイルを間違えて操作しないように、`/workspace/dvc-gnpr` は見えないようにしてあります。この方法で開発コンテナーを起動すると、VNC が使えるようになります。なお、`/workspace/dvc-gnpr/compose.yaml` を `docker compose` コマンドなどで通常のコンテナーとして起動した場合は、そのままでは VNC サーバーが起動しません。
 
@@ -328,11 +328,11 @@ VS Code を起動し、F1 キーを入力してコマンドパレットを表示
 
 VNC クライアントを使う場合は localhost:5901 へアクセスします。パスワードは  <http://localhost:6080> へアクセスする場合と同じです。接続したら、マウスクリックで表示できるメニューから Firefox や Chromium を起動して使うことができます。
 
-これで dvc:gnpr-202606 イメージの開発コンテナーで Node.js を使った Web アプリの開発をしつつ、Web ブラウザで動作確認ができます。Docker ホストの環境から隔離されているため、開発している Web アプリの動作確認のための Web ブラウザ用設定がしやすくなります。
+これで dvc:gnpr-202610 イメージの開発コンテナーで Node.js を使った Web アプリの開発をしつつ、Web ブラウザで動作確認ができます。Docker ホストの環境から隔離されているため、開発している Web アプリの動作確認のための Web ブラウザ用設定がしやすくなります。
 
 ### 開発コンテナーの停止、削除の仕方
 
-VS Code の Docker 拡張機能の画面で、CONTAINERS の欄に表示されている dvc-gnpr-202606 のコンテキストメニューから `Compose Stop` でコンテナー停止、`Compose Down` でコンテナー削除ができます。
+VS Code の Docker 拡張機能の画面で、CONTAINERS の欄に表示されている dvc-gnpr-202610 のコンテキストメニューから `Compose Stop` でコンテナー停止、`Compose Down` でコンテナー削除ができます。
 
 ## 日本語入力
 
@@ -423,7 +423,7 @@ NotoSansCJK-Regular.ttc: "Noto Sans CJK JP" "Regular"
 
 IBus のアイコンで Restart をすると IBus のメニューへも反映されます。
 
-### dvc:gnpr-202606-mozc
+### dvc:gnpr-202610-mozc
 
 この Docker イメージを使い続ける場合は、タグをつけておくなどして、再利用できるようにしておくと良いでしょう。
 
@@ -431,7 +431,7 @@ IBus のアイコンで Restart をすると IBus のメニューへも反映さ
 
 ```console
 docker compose -p dvc-gnpr stop dvc-gnpr
-docker container commit dvc-gnpr dvc:gnpr-202606-mozc
+docker container commit dvc-gnpr dvc:gnpr-202610-mozc
 ```
 
 dvc-gnpr コンテナーは削除します。
@@ -443,10 +443,10 @@ docker compose -p dvc-gnpr down
 作成したイメージを使うように `/workspace/dvc-gnpr/compose.yaml` を変更します。
 
 ```bash
-sed -i 's%hiro345g/dvc:gnpr-202606%dvc:gnpr-202606-mozc%' /workspace/dvc-gnpr/compose.yaml
+sed -i 's%hiro345g/dvc:gnpr-202610%dvc:gnpr-202610-mozc%' /workspace/dvc-gnpr/compose.yaml
 ```
 
-以上で `/workspace/dvc-gnpr` から開発コンテナーを起動すると、mozc がインストールされた状態の `dvc:gnpr-202606-mozc` のイメージが使われるようになります。
+以上で `/workspace/dvc-gnpr` から開発コンテナーを起動すると、mozc がインストールされた状態の `dvc:gnpr-202610-mozc` のイメージが使われるようになります。
 
 ### npm 用環境変数の設定
 
@@ -481,52 +481,52 @@ prefix=/home/node/workspace/.npm-global
 - VS Code を使ったビルド方法
 - build.sh を使ったビルド方法
 - VNC Server のパスワード、ポート番号の変更
-- `hiro345g/dvc:gnpr-202606` へ戻す方法
+- `hiro345g/dvc:gnpr-202610` へ戻す方法
 - カスタムイメージの削除方法
 
 ### ビルドの準備
 
-最初にビルド済みの `hiro345g/dvc:gnpr-202606` イメージを `docker image pull` しておきます。次のようにコマンドを実行します。
+最初にビルド済みの `hiro345g/dvc:gnpr-202610` イメージを `docker image pull` しておきます。次のようにコマンドを実行します。
 
 ```console
-docker image pull hiro345g/dvc:gnpr-202606
+docker image pull hiro345g/dvc:gnpr-202610
 ```
 
 基本は、これをカスタマイズすることになります。
 
 次に `/workspace/dvc-gnpr/build/` にある `.devcontainer/devcontainer.json` や `Dockerfile` を修正してください。必要なら、他のファイルもカスタマイズしてください。
 
-この後、`dvc:gnpr-202606` のカスタムイメージを作成する方法を説明します。
+この後、`dvc:gnpr-202610` のカスタムイメージを作成する方法を説明します。
 
 ### VS Code を使ったビルド方法
 
 VS Code を起動してから、F1 キーを入力して VS Code のコマンドパレットを表示します。入力欄へ「dev containers open」などと入力すると「開発コンテナー: コンテナーでフォルダを開く...（Dev Containers: Open Folder in Container...）」が選択肢に表示されます。これをクリックすると、フォルダーを選択する画面になるので `/workspace/dvc-gnpr/build` を指定して開きます。
 
-`vsc-build-` で始まる Docker イメージが作成されてコンテナーが起動します。`vsc-build-` で始まる Docker イメージに `dvc:gnpr-202606` のタグをつけます。
+`vsc-build-` で始まる Docker イメージが作成されてコンテナーが起動します。`vsc-build-` で始まる Docker イメージに `dvc:gnpr-202610` のタグをつけます。
 
-例えば、次の例だと vsc-build-b3ed032a709b975173b2f2fcf5212c79-uid といったイメージが作成されたので、それに対して `dvc:gnpr-202606` のタグをつけています。
+例えば、次の例だと vsc-build-b3ed032a709b975173b2f2fcf5212c79-uid といったイメージが作成されたので、それに対して `dvc:gnpr-202610` のタグをつけています。
 
 ```console
 $ docker container ls |grep vsc
 351cab45fe6c   vsc-build-b3ed032a709b975173b2f2fcf5212c79-uid   （略）
-$ docker tag vsc-build-b3ed032a709b975173b2f2fcf5212c79-uid dvc:gnpr-202606
+$ docker tag vsc-build-b3ed032a709b975173b2f2fcf5212c79-uid dvc:gnpr-202610
 ```
 
-使用する Docker イメージを作成した `dvc:gnpr-202606` へ変更する必要があるので、`/workspace/dvc-gnpr/compose.yaml` を次のように編集します。
+使用する Docker イメージを作成した `dvc:gnpr-202610` へ変更する必要があるので、`/workspace/dvc-gnpr/compose.yaml` を次のように編集します。
 
 ```yaml
 name: dvc-gnpr
 services:
   dvc-gnpr:
-    #image: hiro345g/dvc:gnpr-202606
-    image: dvc:gnpr-202606
+    #image: hiro345g/dvc:gnpr-202610
+    image: dvc:gnpr-202610
     container_name: dvc-gnpr
     （略）
 ```
 
 ### build.sh を使ったビルド方法
 
-`/workspace/dvc-gnpr/build/build.sh` スクリプトを実行すると、カスタム Docker イメージをビルドしてタグ `dvc:gnpr-202606` をつけることができます。
+`/workspace/dvc-gnpr/build/build.sh` スクリプトを実行すると、カスタム Docker イメージをビルドしてタグ `dvc:gnpr-202610` をつけることができます。
 
 `build.sh` スクリプトを利用するには、`npm` コマンド、`docker` コマンドが実行できる環境が必要です。内部的に `@devcontainers/cli` を `npm exec` コマンドで実行しています。
 
@@ -534,14 +534,14 @@ services:
 sh /workspace/dvc-gnpr/build/build.sh
 ```
 
-ビルドが成功したら、使用する Docker イメージを作成した `dvc:gnpr-202606` へ変更する必要があるので、`/workspace/dvc-gnpr/compose.yaml` を次のように編集します。
+ビルドが成功したら、使用する Docker イメージを作成した `dvc:gnpr-202610` へ変更する必要があるので、`/workspace/dvc-gnpr/compose.yaml` を次のように編集します。
 
 ```yaml
 name: dvc-gnpr
 services:
   dvc-gnpr:
-    #image: hiro345g/dvc:gnpr-202606
-    image: dvc:gnpr-202606
+    #image: hiro345g/dvc:gnpr-202610
+    image: dvc:gnpr-202610
     container_name: dvc-gnpr
     （略）
 ```
@@ -560,16 +560,16 @@ services:
 }
 ```
 
-### `hiro345g/dvc:gnpr-202606` へ戻す方法
+### `hiro345g/dvc:gnpr-202610` へ戻す方法
 
-`hiro345g/dvc:gnpr-202606` へ戻すには、`/workspace/dvc-gnpr/compose.yaml` を次のように編集します。
+`hiro345g/dvc:gnpr-202610` へ戻すには、`/workspace/dvc-gnpr/compose.yaml` を次のように編集します。
 
 ```yaml
 name: dvc-gnpr
 services:
-  dvc:gnpr-202606:
-    image: hiro345g/dvc:gnpr-202606
-    #image: dvc:gnpr-202606
+  dvc:gnpr-202610:
+    image: hiro345g/dvc:gnpr-202610
+    #image: dvc:gnpr-202610
     container_name: dvc-gnpr
     （略）
 ```
@@ -583,5 +583,5 @@ services:
 カスタムイメージを削除したい場合は、`docker image rm` コマンドで削除します。
 
 ```console
-docker image rm dvc:gnpr-202606
+docker image rm dvc:gnpr-202610
 ```
