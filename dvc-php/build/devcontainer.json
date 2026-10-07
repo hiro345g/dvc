@@ -2,12 +2,12 @@
   "name": "dvc-php",
   "dockerFile": "./Dockerfile",
   "features": {
-    "ghcr.io/devcontainers/features/php:1.1.4": {
-      // 8.2.31 at 2026-06-01
-      // Active Support Until 2024-12-31
-      // Security Support Until 2026-12-31
+    "ghcr.io/devcontainers/features/php:1.1.5": {
+      // 8.3.35 at 2026-10-07
+      // Active Support Until 2025-12-31
+      // Security Support Until 2027-12-31
       // prefix=/usr/local/php/current
-      "version":"8.2"
+      "version":"8.3"
     }
   }
 }

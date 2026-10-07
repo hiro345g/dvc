@@ -2,7 +2,7 @@
   "name": "dvc-gnr",
   "dockerFile": "./Dockerfile",
   "features": {
-    "ghcr.io/devcontainers/features/ruby:1.3.2": {
+    "ghcr.io/devcontainers/features/ruby:2.0.0": {
       // EOL: 2028-03-31
       "version":"3.4"
     }
