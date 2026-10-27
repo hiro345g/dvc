@@ -13,6 +13,7 @@ services:
     volumes:
       - workspace-data:/home/node/workspace
       - vscode-server-extensions:/home/node/.vscode-server/extensions
+      - nvm-dir:/usr/local/share/nvm
       - type: bind
         source: ${SHARE_DIR:-../workspace_share}
         target: /share
@@ -26,6 +27,8 @@ services:
 volumes:
   workspace-data:
     name: dvc-node-workspace-data
+  nvm-dir:
+    name: dvc-node-nvm-dir
   vscode-server-extensions:
     name: dvc-vscode-server-extensions
 

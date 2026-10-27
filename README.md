@@ -22,8 +22,13 @@ Dev Container based on mcr.microsoft.com/devcontainers/typescript-node (desktop-
 - debian 13 のコードネームは trixie
 - vnc は tigervnc
 - noVNC は 1.6.0
-- mise は jdx/mise の略、i でインストール済みでバージョンは 2026.10.3
-- jdk は 17, 21 もインストール済み
+- mise は jdx/mise の略、i でインストール済みでバージョンは 2026.10.19
+- node は `/usr/local/bin/node` の v24.21.0 と、nvm 環境の v24.22.1
+- go は 1.26.10
+- jdk は 25.0.5.0+8-tem、21.0.13.0+9-tem、17.0.21.0+9-tem
+- php は 8.3.36
+- python は 3.14.10
+- ruby は 3.4.12
 
 ## 説明
 

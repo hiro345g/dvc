@@ -5,7 +5,7 @@
     "ghcr.io/devcontainers/features/java:1.8.3": {
         // 25.0.4-tem at 2026-10-07
         "version": "25",
-        "additionalVersions": "21.0.12+1.1-tem,17.0.20-tem",
+        "additionalVersions": "21.0.13.0+9-tem,17.0.21.0+9-tem",
         "jdkDistro": "tem",
         "installGradle": true,
         "gradleVersion": "latest",

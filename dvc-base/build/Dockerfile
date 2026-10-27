@@ -1,6 +1,6 @@
 # https://github.com/devcontainers/images/tree/main/src/typescript-node
 FROM mcr.microsoft.com/devcontainers/typescript-node:24-trixie
-# node v24.15.0 at 2026-06-01
+# node v24.21.0 at 2026-10-27
 
 COPY ./node.dot.bashrc /home/node/.bashrc
 COPY ./node.dot.npmrc /home/node/.npmrc
@@ -34,3 +34,8 @@ RUN curl -s -L -O https://github.com/yuru7/HackGen/releases/download/v2.10.0/Hac
     && unzip HackGen_NF_v2.10.0.zip \
     && rm HackGen_NF_v2.10.0.zip \
     && mv HackGen_NF_v2.10.0 /usr/local/share/fonts/HackGen_NF
+
+# node 24.22.1 を nvm でインストール
+RUN chown node /usr/local/share/nvm/versions
+RUN sudo -u node /bin/bash -c '. /usr/local/share/nvm/nvm.sh && nvm install 24.22.1 && nvm alias default 24.22.1'
+RUN rm -fr /usr/local/share/nvm/.cache/
